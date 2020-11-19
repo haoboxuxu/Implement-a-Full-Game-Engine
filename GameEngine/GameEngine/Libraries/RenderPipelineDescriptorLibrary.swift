@@ -15,7 +15,7 @@ class RenderPipelineDescriptorLibrary {
     
     private static var renderPipelineDescriptor: [RenderPipelineDescriptorTypes : RenderPipelineDescriptor] = [:]
     
-    public static func initialize() {
+    public static func Initialize() {
         createDefaultRenderPipelineDescriptor()
     }
     
@@ -23,7 +23,7 @@ class RenderPipelineDescriptorLibrary {
         renderPipelineDescriptor.updateValue(Basic_RenderPipelineDescriptor(), forKey: .Basic)
     }
     
-    public static func descriptor(_ renderPipelineDescriptorType: RenderPipelineDescriptorTypes) -> MTLRenderPipelineDescriptor {
+    public static func Descriptor(_ renderPipelineDescriptorType: RenderPipelineDescriptorTypes) -> MTLRenderPipelineDescriptor {
         return renderPipelineDescriptor[renderPipelineDescriptorType]!.renderPipelineDescriptor
     }
 }
@@ -41,7 +41,7 @@ public struct Basic_RenderPipelineDescriptor: RenderPipelineDescriptor {
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.Vertex(.Basic)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.Fragment(.Basic)
-        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.descriptor(.Basic)
+        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.Descriptor(.Basic)
         
         return renderPipelineDescriptor
     }

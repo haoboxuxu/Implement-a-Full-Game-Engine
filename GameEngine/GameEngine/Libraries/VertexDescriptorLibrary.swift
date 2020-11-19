@@ -15,7 +15,7 @@ class VertexDescriptorLibrary {
     
     private static var vertexDescriptors: [VertexDescriptorTypes : VertexDescriptor] = [:]
     
-    public static func initialize() {
+    public static func Initialize() {
         createDefaultVertexDescriptor()
     }
     
@@ -23,7 +23,7 @@ class VertexDescriptorLibrary {
         vertexDescriptors.updateValue(Basic_VertexDescriptor(), forKey: .Basic)
     }
     
-    public static func descriptor(_ vertexDescriptorType: VertexDescriptorTypes) -> MTLVertexDescriptor {
+    public static func Descriptor(_ vertexDescriptorType: VertexDescriptorTypes) -> MTLVertexDescriptor {
         return vertexDescriptors[vertexDescriptorType]!.vertexDescriptor
     }
 }

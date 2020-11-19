@@ -14,7 +14,7 @@ enum RenderPipelineStateTypes {
 class RenderPipelineStateLibrary {
     private static var renderPipelineStates: [RenderPipelineStateTypes : RenderPipelineState] = [:]
     
-    public static func initialize() {
+    public static func Initialize() {
         createDefaultRrenderPipelineStates()
     }
     
@@ -37,7 +37,7 @@ public struct Basic_RenderPipelineState: RenderPipelineState {
     var renderPipelineState: MTLRenderPipelineState {
         var renderPipelineState: MTLRenderPipelineState!
         do {
-            renderPipelineState = try Engine.Device.makeRenderPipelineState(descriptor: RenderPipelineDescriptorLibrary.descriptor(.Basic))
+            renderPipelineState = try Engine.Device.makeRenderPipelineState(descriptor: RenderPipelineDescriptorLibrary.Descriptor(.Basic))
         } catch let error as NSError {
             print(error)
         }

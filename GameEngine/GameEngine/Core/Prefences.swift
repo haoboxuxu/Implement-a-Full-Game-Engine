@@ -16,6 +16,6 @@ public class ClearColors {
 
 class Prefences {
     
-    public static var clearColor: MTLClearColor = ClearColors.Green
+    public static var clearColor: MTLClearColor = ClearColors.White
     public static var MainPixelFormat: MTLPixelFormat = .bgra8Unorm
 }
