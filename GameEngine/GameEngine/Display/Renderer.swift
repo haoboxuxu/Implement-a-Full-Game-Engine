@@ -9,7 +9,7 @@ import MetalKit
 
 class Renderer: NSObject {
     var gameObjects: [Node] = [Player()]
-    var player = Player()
+    
 }
 
 extension Renderer: MTKViewDelegate {
@@ -22,9 +22,7 @@ extension Renderer: MTKViewDelegate {
         let commandBuffer = Engine.CommandQuque.makeCommandBuffer()
         let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
         
-        player.update(deltaTime: 1 / Float(view.preferredFramesPerSecond))
-        
-        player.render(renderCommandEncoder: renderCommandEncoder!)
+        SceneManger.TickScene(renderCommandEncoder: renderCommandEncoder!, deltaTime: 1 / Float(view.preferredFramesPerSecond))
         
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
