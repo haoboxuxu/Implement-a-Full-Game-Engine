@@ -8,13 +8,21 @@
 import MetalKit
 
 class Renderer: NSObject {
-    var gameObjects: [Node] = [Player()]
-    
+    public static var ScreenSize: float2 = float2(0)
+    init(_ mtkView: MTKView) {
+        super.init()
+        updateScreenSize(view: mtkView)
+    }
 }
 
 extension Renderer: MTKViewDelegate {
+    
+    public func updateScreenSize(view: MTKView) {
+        Renderer.ScreenSize =  float2(Float(view.bounds.width), Float(view.bounds.height))
+    }
+    
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        //when window is resizxe
+        updateScreenSize(view: view)
     }
     
     func draw(in view: MTKView) {

@@ -10,11 +10,12 @@ import MetalKit
 class SandboxScene: Scene {
     
     override func buildScene() {
-        for y in -5..<5 {
-            for x in -5..<5 {
+        let count: Int = 5
+        for y in -count..<count {
+            for x in -count..<count {
                 var player = Player()
-                player.position.x = Float(Float(y) + 0.5) / 5
-                player.position.y = Float(Float(x) + 0.5) / 5
+                player.position.x = Float(Float(y) + 0.5) / Float(count)
+                player.position.y = Float(Float(x) + 0.5) / Float(count)
                 player.scale = float3(0.1)
                 addChild(player)
             }
@@ -22,9 +23,7 @@ class SandboxScene: Scene {
     }
     
     override func update(deltaTime: Float) {
-        for child in children {
-            child.rotation.z += 0.02
-        }
+        print(Mouse.GetMouseViewportPosition())
         super.update(deltaTime: deltaTime)
     }
 }
