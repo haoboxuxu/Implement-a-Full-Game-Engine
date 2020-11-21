@@ -18,6 +18,7 @@ class Prefences {
     
     public static var clearColor: MTLClearColor = ClearColors.White
     public static var MainPixelFormat: MTLPixelFormat = .bgra8Unorm
+    public static var MainDepthPixelFormat: MTLPixelFormat = .depth32Float
     public static var StartingSceneType: SceneTypes = .Sandbox
     
 }

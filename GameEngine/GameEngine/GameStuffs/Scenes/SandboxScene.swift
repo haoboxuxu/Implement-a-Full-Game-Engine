@@ -12,10 +12,14 @@ class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
     
+    var cube = Cube()
+    
     override func buildScene() {
         
         addCamera(debugCamera)
+        debugCamera.position.z = 5
         
+        /*
         let count: Int = 5
         for y in -count..<count {
             for x in -count..<count {
@@ -26,10 +30,14 @@ class SandboxScene: Scene {
                 addChild(pointer)
             }
         }
+        */
+        
+        addChild(cube)
     }
     
     override func update(deltaTime: Float) {
-        print(Mouse.GetMouseViewportPosition())
+        cube.rotation.x += deltaTime
+        cube.rotation.y += deltaTime
         super.update(deltaTime: deltaTime)
     }
 }
