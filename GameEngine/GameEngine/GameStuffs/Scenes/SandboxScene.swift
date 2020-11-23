@@ -12,14 +12,17 @@ class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
     
-    var cube = Cube()
+    //var cube = Cube()
     
     override func buildScene() {
         
-        addCamera(debugCamera)
-        debugCamera.position.z = 5
         
+        addCamera(debugCamera)
+        debugCamera.position.z = 13
+        addCubes()
         /*
+        cube.setColor(float4(0.8, 0.7, 0.6, 1.0))
+        
         let count: Int = 5
         for y in -count..<count {
             for x in -count..<count {
@@ -30,14 +33,31 @@ class SandboxScene: Scene {
                 addChild(pointer)
             }
         }
+        addChild(cube)
         */
         
-        addChild(cube)
     }
     
+    func addCubes() {
+        for y in -5..<5 {
+            let posY = Float(y) + 0.5
+            for x in -8..<8 {
+                let posX = Float(x) + 0.5
+                let cube = Cube()
+                cube.position.x = posX
+                cube.position.y = posY
+                cube.scale = float3(0.2)
+                cube.setColor(ColorUtil.randomColor)
+                addChild(cube)
+            }
+        }
+    }
+    
+    /*
     override func update(deltaTime: Float) {
         cube.rotation.x += deltaTime
         cube.rotation.y += deltaTime
         super.update(deltaTime: deltaTime)
     }
+    */
 }

@@ -11,5 +11,11 @@ class Cube: GameObject {
     init() {
         super.init(meshType: .Cube_Custom)
     }
+    
+    override func update(deltaTime: Float) {
+        self.rotation.x += (deltaTime * Float.randomZeroToOne)
+        self.rotation.y += (deltaTime * Float.randomZeroToOne)
+        super.update(deltaTime: deltaTime)
+    }
 }
 
