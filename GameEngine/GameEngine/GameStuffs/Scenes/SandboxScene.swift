@@ -12,52 +12,41 @@ class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
     
-    //var cube = Cube()
-    
     override func buildScene() {
         
         
         addCamera(debugCamera)
-        debugCamera.position.z = 13
+        debugCamera.position.z = 40
         addCubes()
-        /*
-        cube.setColor(float4(0.8, 0.7, 0.6, 1.0))
-        
-        let count: Int = 5
-        for y in -count..<count {
-            for x in -count..<count {
-                var pointer = Pointer(camera: debugCamera)
-                pointer.position.x = Float(Float(y) + 0.5) / Float(count)
-                pointer.position.y = Float(Float(x) + 0.5) / Float(count)
-                pointer.scale = float3(0.1)
-                addChild(pointer)
-            }
-        }
-        addChild(cube)
-        */
         
     }
     
+    var cubeCollection1: CubeCollection!
     func addCubes() {
-        for y in -5..<5 {
+        /*
+        for y in -3..<4 {
             let posY = Float(y) + 0.5
-            for x in -8..<8 {
+            for x in -3..<4 {
                 let posX = Float(x) + 0.5
-                let cube = Cube()
-                cube.position.x = posX
-                cube.position.y = posY
-                cube.scale = float3(0.2)
-                cube.setColor(ColorUtil.randomColor)
-                addChild(cube)
+                for z in -3..<4 {
+                    let posZ = Float(z) + 0.5
+                    let cube = Cube()
+                    cube.position.x = posX
+                    cube.position.y = posY
+                    cube.position.z = posZ
+                    cube.scale = float3(0.2)
+                    cube.setColor(ColorUtil.randomColor)
+                    addChild(cube)
+                }
             }
-        }
+        }*/
+        
+        cubeCollection1 = CubeCollection(cubesWide: 7, cubesHigh: 7, cubesBack: 7)
+        addChild(cubeCollection1)
     }
     
-    /*
     override func update(deltaTime: Float) {
-        cube.rotation.x += deltaTime
-        cube.rotation.y += deltaTime
+        cubeCollection1.rotation.z += deltaTime
         super.update(deltaTime: deltaTime)
     }
-    */
 }

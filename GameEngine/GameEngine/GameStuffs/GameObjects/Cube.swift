@@ -13,8 +13,10 @@ class Cube: GameObject {
     }
     
     override func update(deltaTime: Float) {
-        self.rotation.x += (deltaTime * Float.randomZeroToOne)
-        self.rotation.y += (deltaTime * Float.randomZeroToOne)
+//        self.rotation.x += (deltaTime * Float.randomZeroToOne)
+//        self.rotation.y += (deltaTime * Float.randomZeroToOne)
+        self.rotation.x += (deltaTime)
+        self.rotation.y += (deltaTime)
         super.update(deltaTime: deltaTime)
     }
 }
