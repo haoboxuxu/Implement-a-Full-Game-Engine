@@ -18,7 +18,7 @@ class InstanceGameObject: Node {
     private var _modelConstantBuffer: MTLBuffer!
     
     init(meshType: MeshTypes, instanceCount: Int) {
-        super.init()
+        super.init(name: "Instance Game Object")
         self._mesh = MeshLibrary.Mesh(meshType)
         self._mesh.setInstanceCount(instanceCount)
         self.generateInstance(instanceCount)
