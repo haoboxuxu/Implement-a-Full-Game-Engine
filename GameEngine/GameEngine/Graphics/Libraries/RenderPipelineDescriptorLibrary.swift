@@ -12,21 +12,17 @@ enum RenderPipelineDescriptorTypes {
     case Instance
 }
 
-class RenderPipelineDescriptorLibrary {
+class RenderPipelineDescriptorLibrary: Library<RenderPipelineDescriptorTypes, MTLRenderPipelineDescriptor> {
     
-    private static var renderPipelineDescriptor: [RenderPipelineDescriptorTypes : RenderPipelineDescriptor] = [:]
+    private var _library: [RenderPipelineDescriptorTypes : RenderPipelineDescriptor] = [:]
     
-    public static func Initialize() {
-        createDefaultRenderPipelineDescriptor()
+    override func fillLibrary() {
+        _library.updateValue(Basic_RenderPipelineDescriptor(), forKey: .Basic)
+        _library.updateValue(Instance_RenderPipelineDescriptor(), forKey: .Instance)
     }
     
-    private static func createDefaultRenderPipelineDescriptor() {
-        renderPipelineDescriptor.updateValue(Basic_RenderPipelineDescriptor(), forKey: .Basic)
-        renderPipelineDescriptor.updateValue(Instance_RenderPipelineDescriptor(), forKey: .Instance)
-    }
-    
-    public static func Descriptor(_ renderPipelineDescriptorType: RenderPipelineDescriptorTypes) -> MTLRenderPipelineDescriptor {
-        return renderPipelineDescriptor[renderPipelineDescriptorType]!.renderPipelineDescriptor
+    override subscript(type: RenderPipelineDescriptorTypes) -> MTLRenderPipelineDescriptor {
+        return _library[type]!.renderPipelineDescriptor
     }
 }
 
@@ -43,9 +39,9 @@ public struct Basic_RenderPipelineDescriptor: RenderPipelineDescriptor {
         
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
         renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
-        renderPipelineDescriptor.vertexFunction = ShaderLibrary.Vertex(.Basic)
-        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.Fragment(.Basic)
-        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.Descriptor(.Basic)
+        renderPipelineDescriptor.vertexFunction = Graphics.VertexShaders[.Basic]
+        renderPipelineDescriptor.fragmentFunction = Graphics.FragmentShaders[.Basic]
+        renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
     }
 }
 
@@ -57,8 +53,8 @@ public struct Instance_RenderPipelineDescriptor: RenderPipelineDescriptor {
         
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
         renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
-        renderPipelineDescriptor.vertexFunction = ShaderLibrary.Vertex(.Instance)
-        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.Fragment(.Basic)
-        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.Descriptor(.Basic)
+        renderPipelineDescriptor.vertexFunction = Graphics.VertexShaders[.Instance]
+        renderPipelineDescriptor.fragmentFunction = Graphics.FragmentShaders[.Basic]
+        renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
     }
 }

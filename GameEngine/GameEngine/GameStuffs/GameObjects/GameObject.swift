@@ -14,7 +14,7 @@ class GameObject: Node {
     var mesh: Mesh!
     
     init(meshType: MeshTypes) {
-        mesh = MeshLibrary.Mesh(meshType)
+        mesh = Entities.Meshes[meshType]
     }
     
     override func update() {
@@ -29,9 +29,8 @@ class GameObject: Node {
 
 extension GameObject: Renderable {
     func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-        //renderCommandEncoder.setTriangleFillMode(.lines)
-        renderCommandEncoder.setRenderPipelineState(RenderPipelineStateLibrary.PipelineStates(.Basic))
-        renderCommandEncoder.setDepthStencilState(DepthStencilStateLibrary.DepthStencilState(.Less))
+        renderCommandEncoder.setRenderPipelineState(Graphics.RenderPipelineStates[.Basic])
+        renderCommandEncoder.setDepthStencilState(Graphics.DepthStencilStates[.Less])
         
         //vertex shader
         renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)

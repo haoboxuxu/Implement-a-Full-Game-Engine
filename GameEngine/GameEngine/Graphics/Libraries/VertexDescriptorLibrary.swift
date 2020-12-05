@@ -11,20 +11,16 @@ enum VertexDescriptorTypes {
     case Basic
 }
 
-class VertexDescriptorLibrary {
+class VertexDescriptorLibrary: Library<VertexDescriptorTypes, MTLVertexDescriptor> {
     
-    private static var vertexDescriptors: [VertexDescriptorTypes : VertexDescriptor] = [:]
+    private var _library: [VertexDescriptorTypes : VertexDescriptor] = [:]
     
-    public static func Initialize() {
-        createDefaultVertexDescriptor()
+    override func fillLibrary() {
+        _library.updateValue(Basic_VertexDescriptor(), forKey: .Basic)
     }
     
-    private static func createDefaultVertexDescriptor() {
-        vertexDescriptors.updateValue(Basic_VertexDescriptor(), forKey: .Basic)
-    }
-    
-    public static func Descriptor(_ vertexDescriptorType: VertexDescriptorTypes) -> MTLVertexDescriptor {
-        return vertexDescriptors[vertexDescriptorType]!.vertexDescriptor
+    override subscript(type: VertexDescriptorTypes) -> MTLVertexDescriptor? {
+        return _library[type]!.vertexDescriptor
     }
 }
 
