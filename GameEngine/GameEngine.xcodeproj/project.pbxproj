@@ -48,7 +48,7 @@
 		E8AEF5BC256517B10019AFFA /* GameEngineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5BB256517B10019AFFA /* GameEngineUITests.swift */; };
 		E8AEF5DA25651AF30019AFFA /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5D925651AF30019AFFA /* GameView.swift */; };
 		E8AEF5E22565224C0019AFFA /* BasicShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5E12565224C0019AFFA /* BasicShaders.metal */; };
-		E8D9E20025655E9000591CB4 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E1FF25655E9000591CB4 /* Types.swift */; };
+		E8D9E20025655E9000591CB4 /* MetalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */; };
 		E8D9E20C256567A400591CB4 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E20B256567A400591CB4 /* Engine.swift */; };
 		E8D9E21425656BA500591CB4 /* Prefences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E21325656BA500591CB4 /* Prefences.swift */; };
 		E8F02D8A2567E9BC009F1943 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F02D892567E9BC009F1943 /* Mouse.swift */; };
@@ -120,7 +120,7 @@
 		E8AEF5BD256517B10019AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8AEF5D925651AF30019AFFA /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		E8AEF5E12565224C0019AFFA /* BasicShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BasicShaders.metal; sourceTree = "<group>"; };
-		E8D9E1FF25655E9000591CB4 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTypes.swift; sourceTree = "<group>"; };
 		E8D9E20B256567A400591CB4 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		E8D9E21325656BA500591CB4 /* Prefences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefences.swift; sourceTree = "<group>"; };
 		E8F02D892567E9BC009F1943 /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D8D1C7D6257BA3FF00D12B5A /* Shader.swift */,
-				E8D9E1FF25655E9000591CB4 /* Types.swift */,
+				E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */,
 				D8D1C7CB257B92F300D12B5A /* Library.swift */,
 			);
 			path = Types;
@@ -544,7 +544,7 @@
 				D8D1C7CC257B92F300D12B5A /* Library.swift in Sources */,
 				E80C137D256B82BF00826EBC /* ColorUtil.swift in Sources */,
 				E8189D7F2566BA2900A56C22 /* Node.swift in Sources */,
-				E8D9E20025655E9000591CB4 /* Types.swift in Sources */,
+				E8D9E20025655E9000591CB4 /* MetalTypes.swift in Sources */,
 				D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */,
 				E830CFA12567D07D002CD422 /* KeyCodes.swift in Sources */,
 				E8AEF59B256517AE0019AFFA /* AppDelegate.swift in Sources */,

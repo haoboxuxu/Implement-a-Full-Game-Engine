@@ -29,114 +29,120 @@ class MeshLibrary: Library<MeshTypes, Mesh> {
 }
 
 protocol Mesh {
-    var vertexBuffer: MTLBuffer! { get }
     var vertexCount: Int! { get }
     func setInstanceCount(_ count: Int)
     func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 
 class CustomMesh: Mesh {
-    var vertices: [Vertex]!
-    var vertexBuffer: MTLBuffer!
-    var instanceCount: Int = 1
+    private var _vertices: [Vertex] = []
+    private var _vertexBuffer: MTLBuffer!
+    private var _instanceCount: Int = 1
     var vertexCount: Int! {
-        return vertices.count
+        return _vertices.count
     }
     
     init() {
         createVertices()
-        createBuffer()
+        createBuffers()
     }
-    func createVertices() { }
     
-    func createBuffer() {
-        vertexBuffer = Engine.Device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
+    func createVertices(){ }
+    
+    func createBuffers(){
+        _vertexBuffer = Engine.Device.makeBuffer(bytes: _vertices,
+                                                length: Vertex.stride(vertexCount),
+                                                options: [])
+    }
+    
+    func addVertex(position: float3, color: float4 = float4(1,0,1,1), textureCoordinate: float2 = float2(0)) {
+        _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate))
     }
     
     func setInstanceCount(_ count: Int) {
-        self.instanceCount = count
+        self._instanceCount = count
     }
     
     func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-        renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertexCount, instanceCount: instanceCount)
+        renderCommandEncoder.setVertexBuffer(_vertexBuffer, offset: 0,
+                                             index: 0)
+        
+        renderCommandEncoder.drawPrimitives(type: .triangle,
+                                            vertexStart: 0,
+                                            vertexCount: vertexCount,
+                                            instanceCount: _instanceCount)
     }
 }
 
 class Triangle_CustomMesh: CustomMesh {
     override func createVertices() {
-        vertices = [
-            Vertex(position: float3( 0, 1, 0), color: float4(1,0,0,1)),
-            Vertex(position: float3(-1,-1, 0), color: float4(0,1,0,1)),
-            Vertex(position: float3( 1,-1, 0), color: float4(0,0,1,1))
-        ]
+        addVertex(position: float3( 0, 1,0), color: float4(1,0,0,1))
+        addVertex(position: float3(-1,-1,0), color: float4(0,1,0,1))
+        addVertex(position: float3( 1,-1,0), color: float4(0,0,1,1))
     }
 }
 
 class Quad_CustomMesh: CustomMesh {
     override func createVertices() {
-        vertices = [
-            Vertex(position: float3( 1, 1, 0), color: float4(1,0,0,1)),
-            Vertex(position: float3(-1, 1, 0), color: float4(0,1,0,1)),
-            Vertex(position: float3(-1,-1, 0), color: float4(0,0,1,1)),
-            
-            Vertex(position: float3( 1, 1, 0), color: float4(1,0,0,1)),
-            Vertex(position: float3(-1,-1, 0), color: float4(0,0,1,1)),
-            Vertex(position: float3( 1,-1, 0), color: float4(1,0,0,1))
-        ]
+        addVertex(position: float3( 1, 1,0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0)) //Top Right
+        addVertex(position: float3(-1, 1,0), color: float4(0,1,0,1), textureCoordinate: float2(0, 0)) //Top Left
+        addVertex(position: float3(-1,-1,0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1)) //Bottom Left
+        
+        addVertex(position: float3( 1, 1,0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0)) //Top Right
+        addVertex(position: float3(-1,-1,0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1)) //Bottom Left
+        addVertex(position: float3( 1,-1,0), color: float4(1,0,1,1), textureCoordinate: float2(1, 1)) //Bottom Right
     }
 }
 
 class Cube_CustomMesh: CustomMesh {
     override func createVertices() {
-        vertices = [
         //Left
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.5, 1.0)),
-            Vertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 0.5, 1.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0,-1.0), color: float4(1.0, 0.0, 1.0, 1.0)),
-            
-            //RIGHT
-            Vertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.5, 1.0)),
-            Vertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 0.5, 1.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 1.0, 1.0)),
-            
-            //TOP
-            Vertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.5, 1.0, 1.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0)),
-            
-            //BOTTOM
-            Vertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0)),
-            Vertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0)),
-            
-            //BACK
-            Vertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0)),
-            Vertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 1.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0)),
-            
-            //FRONT
-            Vertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0)),
-            Vertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0, 1.0), color: float4(0.5, 0.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0)),
-            Vertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0)),
-            Vertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0))
-        ]
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(1.0, 0.0, 1.0, 1.0))
+        
+        //RIGHT
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.5, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 1.0, 1.0))
+        
+        //TOP
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.5, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0))
+        
+        //BOTTOM
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0))
+        
+        //BACK
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0))
+        
+        //FRONT
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(0.5, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0))
     }
+
 }
