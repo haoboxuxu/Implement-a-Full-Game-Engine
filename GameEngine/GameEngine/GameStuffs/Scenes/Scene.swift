@@ -22,7 +22,7 @@ class Scene: Node {
     func addCamera(_ camera: Camera, _ isCurrentCamera: Bool  = true) {
         cameraManger.registerCamera(camera: camera)
         if (isCurrentCamera) {
-            cameraManger.setCamera(camera.cameraTypes)
+            cameraManger.setCamera(camera.cameraType)
         }
     }
     
@@ -31,13 +31,13 @@ class Scene: Node {
         sceneConstants.projectionMatrix = cameraManger.currentCamera.projectionMatrix
     }
     
-    func updateCameras(deltaTime: Float) {
-        cameraManger.update(deltaTime: deltaTime)
+    func updateCameras() {
+        cameraManger.update()
     }
     
-    override func update(deltaTime: Float) {
+    override func update() {
         updateSceneConstants()
-        super.update(deltaTime: deltaTime)
+        super.update()
     }
     
     override func render(renderCommandEncoder: MTLRenderCommandEncoder) {
