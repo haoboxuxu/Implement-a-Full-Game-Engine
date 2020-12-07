@@ -37,6 +37,11 @@ class Graphics {
         return _depthStencilStateLibrary
     }
     
+    private static var _samplerStateLibrary: SamplerStateLibrary!
+    public static var SamplerStates: SamplerStateLibrary {
+        return _samplerStateLibrary
+    }
+    
     public static func Initialize() {
         self._vertexShaderLibrary = VertexShaderLibrary()
         self._fragmenthaderLibrary = FragmentShaderLibrary()
@@ -44,5 +49,6 @@ class Graphics {
         self._renderPipelineDescriptorLibrary = RenderPipelineDescriptorLibrary()
         self._renderPipelineStateLibrary = RenderPipelineStateLibrary()
         self._depthStencilStateLibrary = DepthStencilStateLibrary()
+        self._samplerStateLibrary = SamplerStateLibrary()
     }
 }

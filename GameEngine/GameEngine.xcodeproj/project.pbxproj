@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D882C7D2257E8BE30020AD75 /* img.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D882C7D1257E8BE30020AD75 /* img.JPG */; };
+		D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */; };
+		D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */; };
 		D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7BE257A8D4C00D12B5A /* Quad.swift */; };
 		D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */; };
 		D8D1C7CC257B92F300D12B5A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7CB257B92F300D12B5A /* Library.swift */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D882C7D1257E8BE30020AD75 /* img.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.JPG; sourceTree = "<group>"; };
+		D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
+		D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
 		D8D1C7BE257A8D4C00D12B5A /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		D8D1C7CB257B92F300D12B5A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -151,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D882C7D0257E8B920020AD75 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				D882C7D1257E8BE30020AD75 /* img.JPG */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
 		D8D1C7BC257A8CD400D12B5A /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				E8189D742566AE1000A56C22 /* MeshLibrary.swift */,
+				D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -341,6 +356,7 @@
 		E8D9E2042565656000591CB4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D882C7D0257E8B920020AD75 /* resource */,
 				E8D9E20B256567A400591CB4 /* Engine.swift */,
 				E8D9E21325656BA500591CB4 /* Prefences.swift */,
 				D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */,
@@ -361,6 +377,7 @@
 				E85DFFC7256575B300BFF800 /* RenderPipelineDescriptorLibrary.swift */,
 				E85DFFD22565792000BFF800 /* RenderPipelineStateLibrary.swift */,
 				E8508016256952CE00A43698 /* DepthStencilStateLibrary.swift */,
+				D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -488,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D882C7D2257E8BE30020AD75 /* img.JPG in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
 			);
@@ -527,6 +545,7 @@
 				E8189D752566AE1000A56C22 /* MeshLibrary.swift in Sources */,
 				E8F02D8A2567E9BC009F1943 /* Mouse.swift in Sources */,
 				E8508002256920C000A43698 /* DebugCamera.swift in Sources */,
+				D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */,
 				E85DFFBE25656D8A00BFF800 /* VertexShaderLibrary.swift in Sources */,
 				D8D1C7FF257BBA7C00D12B5A /* InstanceShaders.metal in Sources */,
 				E8189D702566A54A00A56C22 /* Renderer.swift in Sources */,
@@ -540,6 +559,7 @@
 				E8AEF5DA25651AF30019AFFA /* GameView.swift in Sources */,
 				E80053782566C75900E38471 /* Math.swift in Sources */,
 				E830CF992567CF65002CD422 /* Keyboard.swift in Sources */,
+				D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */,
 				E814793B2566A36B000AC277 /* GameObject.swift in Sources */,
 				D8D1C7CC257B92F300D12B5A /* Library.swift in Sources */,
 				E80C137D256B82BF00826EBC /* ColorUtil.swift in Sources */,
