@@ -19,6 +19,10 @@
 		D8D1C7EE257BAD9200D12B5A /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7ED257BAD9200D12B5A /* Entities.swift */; };
 		D8D1C7F4257BB8E900D12B5A /* ShaderData.metal in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7F3257BB8E900D12B5A /* ShaderData.metal */; };
 		D8D1C7FF257BBA7C00D12B5A /* InstanceShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7FE257BBA7C00D12B5A /* InstanceShaders.metal */; };
+		D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B1257FD4BD0063FEC2 /* cruiser.mtl */; };
+		D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B2257FD4BD0063FEC2 /* cruiser.bmp */; };
+		D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B3257FD4BD0063FEC2 /* cruiser.obj */; };
+		D8DBA4BB257FDAA00063FEC2 /* Cruiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBA4BA257FDAA00063FEC2 /* Cruiser.swift */; };
 		E80053782566C75900E38471 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80053772566C75900E38471 /* Math.swift */; };
 		E80053812567B73F00E38471 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80053802567B73F00E38471 /* Scene.swift */; };
 		E80053892567B88E00E38471 /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80053882567B88E00E38471 /* SandboxScene.swift */; };
@@ -87,6 +91,10 @@
 		D8D1C7ED257BAD9200D12B5A /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		D8D1C7F3257BB8E900D12B5A /* ShaderData.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ShaderData.metal; sourceTree = "<group>"; };
 		D8D1C7FE257BBA7C00D12B5A /* InstanceShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = InstanceShaders.metal; sourceTree = "<group>"; };
+		D8DBA4B1257FD4BD0063FEC2 /* cruiser.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl; sourceTree = "<group>"; };
+		D8DBA4B2257FD4BD0063FEC2 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
+		D8DBA4B3257FD4BD0063FEC2 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
+		D8DBA4BA257FDAA00063FEC2 /* Cruiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruiser.swift; sourceTree = "<group>"; };
 		E80053772566C75900E38471 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		E80053802567B73F00E38471 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		E80053882567B88E00E38471 /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 				D882C7D1257E8BE30020AD75 /* img.JPG */,
 			);
 			path = resource;
@@ -201,6 +210,16 @@
 				D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D8DBA4B0257FD4AD0063FEC2 /* cruiser */ = {
+			isa = PBXGroup;
+			children = (
+				D8DBA4B2257FD4BD0063FEC2 /* cruiser.bmp */,
+				D8DBA4B1257FD4BD0063FEC2 /* cruiser.mtl */,
+				D8DBA4B3257FD4BD0063FEC2 /* cruiser.obj */,
+			);
+			path = cruiser;
 			sourceTree = "<group>";
 		};
 		E80053762566C74B00E38471 /* Math */ = {
@@ -266,6 +285,7 @@
 				E850800E25694F3100A43698 /* Cube.swift */,
 				E83926D7256D1EE500667625 /* CubeCollection.swift */,
 				D8D1C7BE257A8D4C00D12B5A /* Quad.swift */,
+				D8DBA4BA257FDAA00063FEC2 /* Cruiser.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -508,6 +528,9 @@
 				D882C7D2257E8BE30020AD75 /* img.JPG in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
+				D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */,
+				D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */,
+				D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +564,7 @@
 				E80053812567B73F00E38471 /* Scene.swift in Sources */,
 				D8D1C7D2257B974300D12B5A /* Graphics.swift in Sources */,
 				E85DFFC8256575B300BFF800 /* RenderPipelineDescriptorLibrary.swift in Sources */,
+				D8DBA4BB257FDAA00063FEC2 /* Cruiser.swift in Sources */,
 				E8D9E20C256567A400591CB4 /* Engine.swift in Sources */,
 				E8189D752566AE1000A56C22 /* MeshLibrary.swift in Sources */,
 				E8F02D8A2567E9BC009F1943 /* Mouse.swift in Sources */,
