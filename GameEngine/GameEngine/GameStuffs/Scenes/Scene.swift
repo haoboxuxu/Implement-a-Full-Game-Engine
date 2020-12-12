@@ -9,8 +9,9 @@ import MetalKit
 
 class Scene: Node {
     
-    var cameraManger = CameraManger()
-    var sceneConstants = SceneConstants()
+    private var _cameraManger = CameraManger()
+    private var _lightManger = LightManger()
+    private var _sceneConstants = SceneConstants()
     
     init() {
         super.init(name: "Scene")
@@ -20,20 +21,25 @@ class Scene: Node {
     func buildScene() { }
     
     func addCamera(_ camera: Camera, _ isCurrentCamera: Bool  = true) {
-        cameraManger.registerCamera(camera: camera)
+        _cameraManger.registerCamera(camera: camera)
         if (isCurrentCamera) {
-            cameraManger.setCamera(camera.cameraType)
+            _cameraManger.setCamera(camera.cameraType)
         }
     }
     
+    func addLight(_ lightObject: LightObject) {
+        self.addChild(lightObject)
+        _lightManger.addLightObject(lightObject)
+    }
+    
     func updateSceneConstants() {
-        sceneConstants.viewMatrix = cameraManger.currentCamera.viewMatrix
-        sceneConstants.projectionMatrix = cameraManger.currentCamera.projectionMatrix
-        sceneConstants.totalGameTime = GameTime.TotalGameTime
+        _sceneConstants.viewMatrix = _cameraManger.currentCamera.viewMatrix
+        _sceneConstants.projectionMatrix = _cameraManger.currentCamera.projectionMatrix
+        _sceneConstants.totalGameTime = GameTime.TotalGameTime
     }
     
     func updateCameras() {
-        cameraManger.update()
+        _cameraManger.update()
     }
     
     override func update() {
@@ -42,7 +48,8 @@ class Scene: Node {
     }
     
     override func render(renderCommandEncoder: MTLRenderCommandEncoder) {
-        renderCommandEncoder.setVertexBytes(&sceneConstants, length: SceneConstants.stride, index: 1)
+        renderCommandEncoder.setVertexBytes(&_sceneConstants, length: SceneConstants.stride, index: 1)
+        _lightManger.setLightData(renderCommandEncoder)
         super.render(renderCommandEncoder: renderCommandEncoder)
     }
 }

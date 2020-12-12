@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D83C8EC3258463240092D34D /* LightObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8EC2258463240092D34D /* LightObject.swift */; };
+		D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECA2584645C0092D34D /* LightManger.swift */; };
+		D83C8ED02584665A0092D34D /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECF2584665A0092D34D /* Sun.swift */; };
+		D83C8ED5258467910092D34D /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = D83C8ED4258467910092D34D /* sphere.obj */; };
 		D882C7D2257E8BE30020AD75 /* img.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D882C7D1257E8BE30020AD75 /* img.JPG */; };
 		D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */; };
 		D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */; };
@@ -79,6 +83,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D83C8EC2258463240092D34D /* LightObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightObject.swift; sourceTree = "<group>"; };
+		D83C8ECA2584645C0092D34D /* LightManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightManger.swift; sourceTree = "<group>"; };
+		D83C8ECF2584665A0092D34D /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		D83C8ED4258467910092D34D /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		D882C7D1257E8BE30020AD75 /* img.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.JPG; sourceTree = "<group>"; };
 		D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D83C8ED4258467910092D34D /* sphere.obj */,
 				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 				D882C7D1257E8BE30020AD75 /* img.JPG */,
 			);
@@ -244,6 +253,7 @@
 			children = (
 				E80053912567BA0200E38471 /* SceneManger.swift */,
 				E85080062569243E00A43698 /* CameraManger.swift */,
+				D83C8ECA2584645C0092D34D /* LightManger.swift */,
 			);
 			path = Manger;
 			sourceTree = "<group>";
@@ -281,6 +291,8 @@
 			children = (
 				E814793A2566A36B000AC277 /* GameObject.swift */,
 				E83926CF256D110400667625 /* InstanceGameObject.swift */,
+				D83C8EC2258463240092D34D /* LightObject.swift */,
+				D83C8ECF2584665A0092D34D /* Sun.swift */,
 				E8189D792566B2FD00A56C22 /* Pointer.swift */,
 				E850800E25694F3100A43698 /* Cube.swift */,
 				E83926D7256D1EE500667625 /* CubeCollection.swift */,
@@ -525,6 +537,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
 				D882C7D2257E8BE30020AD75 /* img.JPG in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
@@ -575,6 +588,7 @@
 				E8189D702566A54A00A56C22 /* Renderer.swift in Sources */,
 				E850800F25694F3100A43698 /* Cube.swift in Sources */,
 				E8AEF5A0256517AE0019AFFA /* GameEngine.xcdatamodeld in Sources */,
+				D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */,
 				D8D1C7E2257BA50F00D12B5A /* FragmentShaderLibrary.swift in Sources */,
 				E8508017256952CE00A43698 /* DepthStencilStateLibrary.swift in Sources */,
 				D8D1C7EE257BAD9200D12B5A /* Entities.swift in Sources */,
@@ -584,8 +598,10 @@
 				E80053782566C75900E38471 /* Math.swift in Sources */,
 				E830CF992567CF65002CD422 /* Keyboard.swift in Sources */,
 				D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */,
+				D83C8EC3258463240092D34D /* LightObject.swift in Sources */,
 				E814793B2566A36B000AC277 /* GameObject.swift in Sources */,
 				D8D1C7CC257B92F300D12B5A /* Library.swift in Sources */,
+				D83C8ED02584665A0092D34D /* Sun.swift in Sources */,
 				E80C137D256B82BF00826EBC /* ColorUtil.swift in Sources */,
 				E8189D7F2566BA2900A56C22 /* Node.swift in Sources */,
 				E8D9E20025655E9000591CB4 /* MetalTypes.swift in Sources */,
