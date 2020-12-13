@@ -29,6 +29,7 @@ class SandboxScene: Scene {
         
         middleSun.setPosition(float3(0, 1, 0))
         middleSun.setMaterialIsLit(false)
+        middleSun.setLightBrightness(0.3)
         middleSun.setMaterialColor(float4(1, 1, 1, 1))
         middleSun.setLightColor(float3(1, 1, 1))
         addLight(middleSun)
@@ -39,6 +40,7 @@ class SandboxScene: Scene {
         rightSun.setLightColor(float3(0, 0, 1))
         addLight(rightSun)
         
+        cruiser.setMaterialAmbient(0.02)
         cruiser.setRotationX(0.3)
         addChild(cruiser)
     }
@@ -48,5 +50,9 @@ class SandboxScene: Scene {
             cruiser.rotateX(Mouse.GetDY() * GameTime.DeltaTime)
             cruiser.rotateY(Mouse.GetDX() * GameTime.DeltaTime)
         }
+        
+        leftSun.setPositionX(cos(GameTime.TotalGameTime) - 1)
+        middleSun.setPositionX(cos(GameTime.TotalGameTime))
+        rightSun.setPositionX(cos(GameTime.TotalGameTime) + 1)
     }
 }

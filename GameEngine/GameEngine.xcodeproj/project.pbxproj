@@ -186,8 +186,8 @@
 		D8D1C7BC257A8CD400D12B5A /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				D8D1C7D6257BA3FF00D12B5A /* Shader.swift */,
 				E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */,
+				D8D1C7D6257BA3FF00D12B5A /* Shader.swift */,
 				D8D1C7CB257B92F300D12B5A /* Library.swift */,
 			);
 			path = Types;

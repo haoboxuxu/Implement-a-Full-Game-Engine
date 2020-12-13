@@ -37,4 +37,7 @@ extension LightObject {
     
     public func setAmbientIntensity(_ intensity: Float) { self.lightData.ambientIntensity = intensity }
     public func getAmbientIntensity() -> Float { return self.lightData.ambientIntensity }
+    
+    public func setDiffuseIntensity(_ intensity: Float) { self.lightData.diffuseIntensity = intensity }
+    public func getDiffuseIntensity() -> Float { return self.lightData.diffuseIntensity }
 }

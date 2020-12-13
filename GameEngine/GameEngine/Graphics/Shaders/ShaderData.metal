@@ -12,6 +12,7 @@ struct VertexIn {
     float3 position [[ attribute(0) ]];
     float4 color [[ attribute(1) ]];
     float2 textureCoordinate [[ attribute(2) ]];
+    float3 normal[[ attribute(3) ]];
 };
 
 struct RasterizerData {
@@ -19,6 +20,8 @@ struct RasterizerData {
     float4 color;
     float2 textureCoordinate;
     float totalGameTime;
+    float3 worldPosition;
+    float3 surfaceNormal;
 };
 
 struct ModelConstants {
@@ -37,6 +40,7 @@ struct Material {
     bool useTexture;
     bool isLit;
     float3 ambient;
+    float3 difuse;
 };
 
 struct LightData {
@@ -44,4 +48,5 @@ struct LightData {
     float3 color;
     float brightness;
     float ambientIntensity;
+    float difuseIntensity;
 };
