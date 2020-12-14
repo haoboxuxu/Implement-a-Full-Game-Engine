@@ -35,9 +35,12 @@ extension LightObject {
     public func setLightBrightness(_ brightness: Float) { self.lightData.brightness = brightness }
     public func getLightBrightness() -> Float { return self.lightData.brightness }
     
-    public func setAmbientIntensity(_ intensity: Float) { self.lightData.ambientIntensity = intensity }
-    public func getAmbientIntensity() -> Float { return self.lightData.ambientIntensity }
+    public func setLightAmbientIntensity(_ intensity: Float) { self.lightData.ambientIntensity = intensity }
+    public func getLightAmbientIntensity() -> Float { return self.lightData.ambientIntensity }
     
-    public func setDiffuseIntensity(_ intensity: Float) { self.lightData.diffuseIntensity = intensity }
-    public func getDiffuseIntensity() -> Float { return self.lightData.diffuseIntensity }
+    public func setLightDiffuseIntensity(_ intensity: Float) { self.lightData.diffuseIntensity = intensity }
+    public func getLightDiffuseIntensity() -> Float { return self.lightData.diffuseIntensity }
+    
+    public func setLightSpecularIntensity(_ intensity: Float) { self.lightData.specularIntensity = intensity }
+    public func getLightSpecularIntensity() -> Float { return self.lightData.specularIntensity }
 }

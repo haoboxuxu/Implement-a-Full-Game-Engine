@@ -36,6 +36,6 @@ class DebugCamera: Camera {
             self.moveY(-GameTime.DeltaTime)
         }
         
-        self._zoom += Mouse.GetDWheel()
+        //self._zoom += Mouse.GetDWheel()
     }
 }

@@ -40,7 +40,7 @@ class SandboxScene: Scene {
         rightSun.setLightColor(float3(0, 0, 1))
         addLight(rightSun)
         
-        cruiser.setMaterialAmbient(0.02)
+        cruiser.setMaterialAmbient(0.01)
         cruiser.setRotationX(0.3)
         addChild(cruiser)
     }
@@ -54,5 +54,7 @@ class SandboxScene: Scene {
         leftSun.setPositionX(cos(GameTime.TotalGameTime) - 1)
         middleSun.setPositionX(cos(GameTime.TotalGameTime))
         rightSun.setPositionX(cos(GameTime.TotalGameTime) + 1)
+        
+        cruiser.setMaterialShininess(max(cruiser.getMaterialShininess() + Mouse.GetDWheel(), 0))
     }
 }
