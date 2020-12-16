@@ -16,8 +16,8 @@ class RenderPipelineStateLibrary: Library<RenderPipelineStateTypes, MTLRenderPip
     private var _library: [RenderPipelineStateTypes : RenderPipelineState] = [:]
     
     override func fillLibrary() {
-        _library.updateValue(RenderPipelineState(renderPipelineDescriptorTypes: .Basic), forKey: .Basic)
-        _library.updateValue(RenderPipelineState(renderPipelineDescriptorTypes: .Instance), forKey: .Instance)
+        _library.updateValue(Basic_RenderPipelineState(), forKey: .Basic)
+        _library.updateValue(Instance_RenderPipelineState(), forKey: .Instance)
     }
     
     override subscript(type: RenderPipelineStateTypes) -> MTLRenderPipelineState {
@@ -27,11 +27,37 @@ class RenderPipelineStateLibrary: Library<RenderPipelineStateTypes, MTLRenderPip
 
 class RenderPipelineState {
     var renderPipelineState: MTLRenderPipelineState!
-    init(renderPipelineDescriptorTypes: RenderPipelineDescriptorTypes) {
+    init(renderPipelineDescriptor: MTLRenderPipelineDescriptor) {
         do {
-            renderPipelineState = try Engine.Device.makeRenderPipelineState(descriptor: Graphics.RenderPipelineDescriptors[renderPipelineDescriptorTypes])
+            renderPipelineState = try Engine.Device.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
         } catch let error as NSError {
             print(error)
         }
+    }
+}
+
+class Basic_RenderPipelineState: RenderPipelineState {
+    init() {
+        let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+        renderPipelineDescriptor.label = "Basic_Render_Pipeline_Descriptor"
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
+        renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
+        renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
+        renderPipelineDescriptor.vertexFunction = Graphics.Shaders[.Basic_Vertex]
+        renderPipelineDescriptor.fragmentFunction = Graphics.Shaders[.Basic_Fragment]
+        super.init(renderPipelineDescriptor: renderPipelineDescriptor)
+    }
+}
+
+class Instance_RenderPipelineState: RenderPipelineState {
+    init() {
+        let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+        renderPipelineDescriptor.label = "Instance_Render_Pipeline_Descriptor"
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
+        renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
+        renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
+        renderPipelineDescriptor.vertexFunction = Graphics.Shaders[.Instanced_Vertex]
+        renderPipelineDescriptor.fragmentFunction = Graphics.Shaders[.Basic_Fragment]
+        super.init(renderPipelineDescriptor: renderPipelineDescriptor)
     }
 }

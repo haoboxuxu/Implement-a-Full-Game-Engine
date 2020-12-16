@@ -26,7 +26,7 @@ class InstanceGameObject: Node {
     
     func generateInstance(_ instanceCount: Int) {
         for _ in 0..<instanceCount {
-            _nodes.append(Node())
+            _nodes.append(Node(name: "\(getName())_InstancedNode"))
         }
     }
     

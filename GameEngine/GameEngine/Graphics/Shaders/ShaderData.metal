@@ -5,6 +5,9 @@
 //  Created by 徐浩博 on 2020/12/5.
 //
 
+#ifndef SHARED_METAL
+#define SHARED_METAL
+
 #include <metal_stdlib>
 using namespace metal;
 
@@ -55,3 +58,5 @@ struct LightData {
     float difuseIntensity;
     float specularIntensity;
 };
+
+#endif

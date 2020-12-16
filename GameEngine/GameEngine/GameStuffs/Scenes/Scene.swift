@@ -13,8 +13,8 @@ class Scene: Node {
     private var _lightManger = LightManger()
     private var _sceneConstants = SceneConstants()
     
-    init() {
-        super.init(name: "Scene")
+    override init(name: String) {
+        super.init(name: name)
         buildScene()
     }
     

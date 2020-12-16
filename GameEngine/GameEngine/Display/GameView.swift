@@ -16,7 +16,7 @@ class GameView: MTKView {
         self.device = MTLCreateSystemDefaultDevice()
         Engine.Ignite(device: device!)
         
-        self.clearColor = Prefences.clearColor
+        self.clearColor = Prefences.ClearColor
         self.colorPixelFormat = Prefences.MainPixelFormat
         self.depthStencilPixelFormat = Prefences.MainDepthPixelFormat
         
