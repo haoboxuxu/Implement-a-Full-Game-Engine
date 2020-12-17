@@ -29,7 +29,7 @@ class TextureLibrary: Library<TextureTypes, MTLTexture> {
 class Texture {
     var texture: MTLTexture!
     
-    init(_ textureName: String, ext: String = "JPG", origin: TextureOrigin = TextureOrigin.TopLeft) {
+    init(_ textureName: String, ext: String = "png", origin: TextureOrigin = TextureOrigin.TopLeft) {
         let textureLoader = TextureLoader(textureName: textureName, textureExtension: ext, origin: origin)
         let texture: MTLTexture = textureLoader.loadTextureFromBundle()
         setTexture(texture)
@@ -51,7 +51,7 @@ class TextureLoader {
     private var _textureExtension: String!
     private var _origin: MTKTextureLoader.Origin!
     
-    init(textureName: String, textureExtension: String = "JPG", origin: TextureOrigin = TextureOrigin.TopLeft) {
+    init(textureName: String, textureExtension: String = "png", origin: TextureOrigin = TextureOrigin.TopLeft) {
         self._textureName = textureName
         self._textureExtension = textureExtension
         self.setTextureOrigin(origin)
@@ -72,7 +72,10 @@ class TextureLoader {
         if let url = Bundle.main.url(forResource: _textureName, withExtension: _textureExtension) {
             let textureLoader = MTKTextureLoader(device: Engine.Device)
             
-            let options: [MTKTextureLoader.Option : MTKTextureLoader.Origin] = [MTKTextureLoader.Option.origin : _origin]
+            let options: [MTKTextureLoader.Option : Any] = [
+                MTKTextureLoader.Option.origin : _origin as Any,
+                MTKTextureLoader.Option.generateMipmaps : true
+            ]
             
             do {
                 result = try textureLoader.newTexture(URL: url, options: options)

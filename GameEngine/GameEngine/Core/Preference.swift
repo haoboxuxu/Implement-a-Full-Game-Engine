@@ -18,7 +18,7 @@ public class ClearColors {
     
 }
 
-class Prefences {
+class Preference {
     public static var ClearColor: MTLClearColor = ClearColors.DarkGrey
     public static var MainPixelFormat: MTLPixelFormat = MTLPixelFormat.bgra8Unorm_srgb
     public static var MainDepthPixelFormat: MTLPixelFormat = MTLPixelFormat.depth32Float

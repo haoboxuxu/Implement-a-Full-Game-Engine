@@ -40,8 +40,8 @@ class Basic_RenderPipelineState: RenderPipelineState {
     init() {
         let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
         renderPipelineDescriptor.label = "Basic_Render_Pipeline_Descriptor"
-        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
-        renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preference.MainPixelFormat
+        renderPipelineDescriptor.depthAttachmentPixelFormat = Preference.MainDepthPixelFormat
         renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
         renderPipelineDescriptor.vertexFunction = Graphics.Shaders[.Basic_Vertex]
         renderPipelineDescriptor.fragmentFunction = Graphics.Shaders[.Basic_Fragment]
@@ -53,8 +53,8 @@ class Instance_RenderPipelineState: RenderPipelineState {
     init() {
         let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
         renderPipelineDescriptor.label = "Instance_Render_Pipeline_Descriptor"
-        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Prefences.MainPixelFormat
-        renderPipelineDescriptor.depthAttachmentPixelFormat = Prefences.MainDepthPixelFormat
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preference.MainPixelFormat
+        renderPipelineDescriptor.depthAttachmentPixelFormat = Preference.MainDepthPixelFormat
         renderPipelineDescriptor.vertexDescriptor = Graphics.VertexDescriptors[.Basic]
         renderPipelineDescriptor.vertexFunction = Graphics.Shaders[.Instanced_Vertex]
         renderPipelineDescriptor.fragmentFunction = Graphics.Shaders[.Basic_Fragment]

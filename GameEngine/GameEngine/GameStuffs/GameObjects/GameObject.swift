@@ -53,6 +53,10 @@ extension GameObject {
         self._material.useMaterialColor = true
     }
     
+    public func setMaterialColor(_ r: Float,_ g: Float,_ b: Float,_ a: Float) {
+        setMaterialColor(float4(r,g,b,a))
+    }
+    
     public func setTexture(_ textureType: TextureTypes) {
         self._textureType = textureType
         self._material.useTexture = true
