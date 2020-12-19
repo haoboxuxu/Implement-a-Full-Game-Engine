@@ -17,11 +17,6 @@ class Graphics {
         return _vertexDescriptorLibrary
     }
     
-//    private static var _renderPipelineDescriptorLibrary: RenderPipelineDescriptorLibrary!
-//    public static var RenderPipelineDescriptors: RenderPipelineDescriptorLibrary {
-//        return _renderPipelineDescriptorLibrary
-//    }
-    
     private static var _renderPipelineStateLibrary: RenderPipelineStateLibrary!
     public static var RenderPipelineStates: RenderPipelineStateLibrary {
         return _renderPipelineStateLibrary
@@ -40,7 +35,6 @@ class Graphics {
     public static func Initialize() {
         self._shaderLibrary = ShaderLibrary()
         self._vertexDescriptorLibrary = VertexDescriptorLibrary()
-        //self._renderPipelineDescriptorLibrary = RenderPipelineDescriptorLibrary()
         self._renderPipelineStateLibrary = RenderPipelineStateLibrary()
         self._depthStencilStateLibrary = DepthStencilStateLibrary()
         self._samplerStateLibrary = SamplerStateLibrary()

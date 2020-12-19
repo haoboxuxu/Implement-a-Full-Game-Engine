@@ -49,7 +49,7 @@ public:
             float3 specularColor = clamp(specularness * specularExp * lightData.color * lightData.brightness, 0.0, 1.0);
             totalSpecular += specularColor;
         }
-
+        
         return totalAmbient + totalDiffuse + totalSpecular;
     }
 };

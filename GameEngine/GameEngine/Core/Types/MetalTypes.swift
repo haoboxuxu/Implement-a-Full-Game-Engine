@@ -22,11 +22,11 @@ extension sizeable {
         return MemoryLayout<Self>.stride
     }
     
-    static func size(_ count: Int)->Int {
+    static func size(_ count: Int) -> Int {
         return MemoryLayout<Self>.size * count
     }
     
-    static func stride(_ count: Int)->Int {
+    static func stride(_ count: Int) -> Int {
         return MemoryLayout<Self>.stride * count
     }
 }
@@ -63,7 +63,7 @@ struct Material: sizeable {
     var ambient: float3 = float3(0.1, 0.1, 0.1)
     var diffuse: float3 = float3(1.0, 1.0, 1.0)
     var specular: float3 = float3(1.0, 1.0, 1.0)
-    var shininess: Float = 500
+    var shininess: Float = 100
 }
 
 struct LightData: sizeable {

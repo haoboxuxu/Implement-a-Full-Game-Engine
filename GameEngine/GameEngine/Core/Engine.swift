@@ -17,7 +17,6 @@ class Engine {
         self.CommandQuque = device.makeCommandQueue()
         self.DefaltLibrary = device.makeDefaultLibrary()
         
-        
         Graphics.Initialize()
         Entities.Initialize()
         

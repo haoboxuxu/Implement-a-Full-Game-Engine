@@ -41,7 +41,6 @@ protocol Mesh {
 
 class NoMesh: Mesh {
     func setInstanceCount(_ count: Int) { }
-    
     func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder) { }
 }
 

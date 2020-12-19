@@ -11,18 +11,19 @@
 		D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECA2584645C0092D34D /* LightManger.swift */; };
 		D83C8ED02584665A0092D34D /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECF2584665A0092D34D /* Sun.swift */; };
 		D83C8ED5258467910092D34D /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = D83C8ED4258467910092D34D /* sphere.obj */; };
+		D84D6361258E30190080C203 /* InstanceShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D84D635D258E30190080C203 /* InstanceShaders.metal */; };
+		D84D6362258E30190080C203 /* BasicShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D84D635E258E30190080C203 /* BasicShaders.metal */; };
+		D84D6363258E30190080C203 /* ShaderData.metal in Sources */ = {isa = PBXBuildFile; fileRef = D84D635F258E30190080C203 /* ShaderData.metal */; };
+		D84D6364258E30190080C203 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = D84D6360258E30190080C203 /* Lighting.metal */; };
 		D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */; };
 		D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */; };
-		D8C708BA258B7E720026123E /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = D8C708B9258B7E720026123E /* img.png */; };
+		D883F3DF258E543300314E70 /* breakingbad.png in Resources */ = {isa = PBXBuildFile; fileRef = D883F3DE258E543300314E70 /* breakingbad.png */; };
 		D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D124A02589B8C0006D676E /* ShaderLibrary.swift */; };
-		D8D124B52589EA42006D676E /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = D8D124B42589EA42006D676E /* Lighting.metal */; };
 		D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7BE257A8D4C00D12B5A /* Quad.swift */; };
 		D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */; };
 		D8D1C7CC257B92F300D12B5A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7CB257B92F300D12B5A /* Library.swift */; };
 		D8D1C7D2257B974300D12B5A /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7D1257B974300D12B5A /* Graphics.swift */; };
 		D8D1C7EE257BAD9200D12B5A /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7ED257BAD9200D12B5A /* Entities.swift */; };
-		D8D1C7F4257BB8E900D12B5A /* ShaderData.metal in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7F3257BB8E900D12B5A /* ShaderData.metal */; };
-		D8D1C7FF257BBA7C00D12B5A /* InstanceShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7FE257BBA7C00D12B5A /* InstanceShaders.metal */; };
 		D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B1257FD4BD0063FEC2 /* cruiser.mtl */; };
 		D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B2257FD4BD0063FEC2 /* cruiser.bmp */; };
 		D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = D8DBA4B3257FD4BD0063FEC2 /* cruiser.obj */; };
@@ -56,7 +57,6 @@
 		E8AEF5B1256517B10019AFFA /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5B0256517B10019AFFA /* GameEngineTests.swift */; };
 		E8AEF5BC256517B10019AFFA /* GameEngineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5BB256517B10019AFFA /* GameEngineUITests.swift */; };
 		E8AEF5DA25651AF30019AFFA /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5D925651AF30019AFFA /* GameView.swift */; };
-		E8AEF5E22565224C0019AFFA /* BasicShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E8AEF5E12565224C0019AFFA /* BasicShaders.metal */; };
 		E8D9E20025655E9000591CB4 /* MetalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */; };
 		E8D9E20C256567A400591CB4 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E20B256567A400591CB4 /* Engine.swift */; };
 		E8D9E21425656BA500591CB4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E21325656BA500591CB4 /* Preference.swift */; };
@@ -85,18 +85,19 @@
 		D83C8ECA2584645C0092D34D /* LightManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightManger.swift; sourceTree = "<group>"; };
 		D83C8ECF2584665A0092D34D /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
 		D83C8ED4258467910092D34D /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		D84D635D258E30190080C203 /* InstanceShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = InstanceShaders.metal; sourceTree = "<group>"; };
+		D84D635E258E30190080C203 /* BasicShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = BasicShaders.metal; sourceTree = "<group>"; };
+		D84D635F258E30190080C203 /* ShaderData.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ShaderData.metal; sourceTree = "<group>"; };
+		D84D6360258E30190080C203 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
 		D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
-		D8C708B9258B7E720026123E /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img.png; path = GameEngine/Core/resource/img.png; sourceTree = SOURCE_ROOT; };
+		D883F3DE258E543300314E70 /* breakingbad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breakingbad.png; sourceTree = "<group>"; };
 		D8D124A02589B8C0006D676E /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
-		D8D124B42589EA42006D676E /* Lighting.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
 		D8D1C7BE257A8D4C00D12B5A /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		D8D1C7CB257B92F300D12B5A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D8D1C7D1257B974300D12B5A /* Graphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
 		D8D1C7ED257BAD9200D12B5A /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
-		D8D1C7F3257BB8E900D12B5A /* ShaderData.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ShaderData.metal; sourceTree = "<group>"; };
-		D8D1C7FE257BBA7C00D12B5A /* InstanceShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = InstanceShaders.metal; sourceTree = "<group>"; };
 		D8DBA4B1257FD4BD0063FEC2 /* cruiser.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl; sourceTree = "<group>"; };
 		D8DBA4B2257FD4BD0063FEC2 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
 		D8DBA4B3257FD4BD0063FEC2 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		E8AEF5BB256517B10019AFFA /* GameEngineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineUITests.swift; sourceTree = "<group>"; };
 		E8AEF5BD256517B10019AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8AEF5D925651AF30019AFFA /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		E8AEF5E12565224C0019AFFA /* BasicShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BasicShaders.metal; sourceTree = "<group>"; };
 		E8D9E1FF25655E9000591CB4 /* MetalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTypes.swift; sourceTree = "<group>"; };
 		E8D9E20B256567A400591CB4 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		E8D9E21325656BA500591CB4 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				D8C708B9258B7E720026123E /* img.png */,
+				D883F3DE258E543300314E70 /* breakingbad.png */,
 				D83C8ED4258467910092D34D /* sphere.obj */,
 				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 			);
@@ -410,10 +410,10 @@
 		E8D9E2062565659300591CB4 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				D8D1C7F3257BB8E900D12B5A /* ShaderData.metal */,
-				E8AEF5E12565224C0019AFFA /* BasicShaders.metal */,
-				D8D1C7FE257BBA7C00D12B5A /* InstanceShaders.metal */,
-				D8D124B42589EA42006D676E /* Lighting.metal */,
+				D84D635E258E30190080C203 /* BasicShaders.metal */,
+				D84D635D258E30190080C203 /* InstanceShaders.metal */,
+				D84D6360258E30190080C203 /* Lighting.metal */,
+				D84D635F258E30190080C203 /* ShaderData.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -531,13 +531,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D883F3DF258E543300314E70 /* breakingbad.png in Resources */,
 				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
 				D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */,
 				D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */,
 				D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */,
-				D8C708BA258B7E720026123E /* img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,11 +566,9 @@
 				E8189D852566BAEA00A56C22 /* Renderable.swift in Sources */,
 				E85080072569243E00A43698 /* CameraManger.swift in Sources */,
 				E85DFFC3256572E500BFF800 /* VertexDescriptorLibrary.swift in Sources */,
-				D8D1C7F4257BB8E900D12B5A /* ShaderData.metal in Sources */,
-				E8AEF5E22565224C0019AFFA /* BasicShaders.metal in Sources */,
-				D8D124B52589EA42006D676E /* Lighting.metal in Sources */,
 				E80053812567B73F00E38471 /* Scene.swift in Sources */,
 				D8D1C7D2257B974300D12B5A /* Graphics.swift in Sources */,
+				D84D6364258E30190080C203 /* Lighting.metal in Sources */,
 				D8DBA4BB257FDAA00063FEC2 /* Cruiser.swift in Sources */,
 				D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */,
 				E8D9E20C256567A400591CB4 /* Engine.swift in Sources */,
@@ -578,14 +576,15 @@
 				E8F02D8A2567E9BC009F1943 /* Mouse.swift in Sources */,
 				E8508002256920C000A43698 /* DebugCamera.swift in Sources */,
 				D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */,
-				D8D1C7FF257BBA7C00D12B5A /* InstanceShaders.metal in Sources */,
 				E8189D702566A54A00A56C22 /* Renderer.swift in Sources */,
+				D84D6363258E30190080C203 /* ShaderData.metal in Sources */,
 				E850800F25694F3100A43698 /* Cube.swift in Sources */,
 				E8AEF5A0256517AE0019AFFA /* GameEngine.xcdatamodeld in Sources */,
 				D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */,
 				E8508017256952CE00A43698 /* DepthStencilStateLibrary.swift in Sources */,
 				D8D1C7EE257BAD9200D12B5A /* Entities.swift in Sources */,
 				E80053922567BA0200E38471 /* SceneManger.swift in Sources */,
+				D84D6362258E30190080C203 /* BasicShaders.metal in Sources */,
 				E8D9E21425656BA500591CB4 /* Preference.swift in Sources */,
 				E8AEF5DA25651AF30019AFFA /* GameView.swift in Sources */,
 				E80053782566C75900E38471 /* Math.swift in Sources */,
@@ -605,6 +604,7 @@
 				E8507FFA25691FE600A43698 /* Camera.swift in Sources */,
 				E8189D7A2566B2FD00A56C22 /* Pointer.swift in Sources */,
 				E83926D0256D110400667625 /* InstanceGameObject.swift in Sources */,
+				D84D6361258E30190080C203 /* InstanceShaders.metal in Sources */,
 				E80053892567B88E00E38471 /* SandboxScene.swift in Sources */,
 				E85DFFD32565792000BFF800 /* RenderPipelineStateLibrary.swift in Sources */,
 			);
