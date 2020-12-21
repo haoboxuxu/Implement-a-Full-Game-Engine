@@ -14,6 +14,7 @@ enum MeshTypes {
     case Cube_Custom
     case Cruiser
     case Sphere
+    case SuzanneMonkey
 }
 
 class MeshLibrary: Library<MeshTypes, Mesh> {
@@ -27,6 +28,7 @@ class MeshLibrary: Library<MeshTypes, Mesh> {
         _library.updateValue(Cube_CustomMesh(), forKey: .Cube_Custom)
         _library.updateValue(ModelMesh(modelName: "cruiser"), forKey: .Cruiser)
         _library.updateValue(ModelMesh(modelName: "sphere"), forKey: .Sphere)
+        _library.updateValue(ModelMesh(modelName: "SuzanneMonkey"), forKey: .SuzanneMonkey)
     }
     
     override subscript(type: MeshTypes) -> Mesh {
