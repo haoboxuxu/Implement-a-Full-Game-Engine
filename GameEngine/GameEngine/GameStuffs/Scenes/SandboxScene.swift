@@ -22,7 +22,7 @@ class SandboxScene: Scene {
     var sun = Sun()
     
     // blender obj
-    var suzanneMonkey = SuzanneMonkey()
+    var chest = Chest()
 
 
     override func buildScene() {
@@ -31,12 +31,12 @@ class SandboxScene: Scene {
         
         addWhiteLight()
         
-        addChild(suzanneMonkey)
+        addChild(chest)
     }
 
     override func doUpdate() {
         if (Mouse.IsMouseButtonPressed(button: .left)) {
-            suzanneMonkey.rotate(Mouse.GetDY() * GameTime.DeltaTime, Mouse.GetDX() * GameTime.DeltaTime, 0)
+            chest.rotate(Mouse.GetDY() * GameTime.DeltaTime, Mouse.GetDX() * GameTime.DeltaTime, 0)
         }
     }
     

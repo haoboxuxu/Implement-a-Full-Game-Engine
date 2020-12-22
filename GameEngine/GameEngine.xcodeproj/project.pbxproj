@@ -18,6 +18,11 @@
 		D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */; };
 		D882C7DC257E93400020AD75 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */; };
 		D883F3DF258E543300314E70 /* breakingbad.png in Resources */ = {isa = PBXBuildFile; fileRef = D883F3DE258E543300314E70 /* breakingbad.png */; };
+		D8862C8B2592032300813DCE /* chest.obj in Resources */ = {isa = PBXBuildFile; fileRef = D8862C872592032300813DCE /* chest.obj */; };
+		D8862C8C2592032300813DCE /* Chest_Metal_Base_Color.png in Resources */ = {isa = PBXBuildFile; fileRef = D8862C882592032300813DCE /* Chest_Metal_Base_Color.png */; };
+		D8862C8D2592032300813DCE /* chest.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8862C892592032300813DCE /* chest.mtl */; };
+		D8862C8E2592032300813DCE /* Chest_Wood_Base_Color.png in Resources */ = {isa = PBXBuildFile; fileRef = D8862C8A2592032300813DCE /* Chest_Wood_Base_Color.png */; };
+		D8862C932592033400813DCE /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8862C922592033400813DCE /* Chest.swift */; };
 		D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D124A02589B8C0006D676E /* ShaderLibrary.swift */; };
 		D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7BE257A8D4C00D12B5A /* Quad.swift */; };
 		D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */; };
@@ -95,6 +100,11 @@
 		D882C7D6257E8D9C0020AD75 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		D882C7DB257E93400020AD75 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
 		D883F3DE258E543300314E70 /* breakingbad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breakingbad.png; sourceTree = "<group>"; };
+		D8862C872592032300813DCE /* chest.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chest.obj; sourceTree = "<group>"; };
+		D8862C882592032300813DCE /* Chest_Metal_Base_Color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chest_Metal_Base_Color.png; sourceTree = "<group>"; };
+		D8862C892592032300813DCE /* chest.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chest.mtl; sourceTree = "<group>"; };
+		D8862C8A2592032300813DCE /* Chest_Wood_Base_Color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chest_Wood_Base_Color.png; sourceTree = "<group>"; };
+		D8862C922592033400813DCE /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
 		D8D124A02589B8C0006D676E /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
 		D8D1C7BE257A8D4C00D12B5A /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
@@ -178,12 +188,24 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D8862C862592031200813DCE /* chest */,
 				D8DD67BA25910D750091325E /* SuzanneMonkey */,
 				D883F3DE258E543300314E70 /* breakingbad.png */,
 				D83C8ED4258467910092D34D /* sphere.obj */,
 				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		D8862C862592031200813DCE /* chest */ = {
+			isa = PBXGroup;
+			children = (
+				D8862C882592032300813DCE /* Chest_Metal_Base_Color.png */,
+				D8862C8A2592032300813DCE /* Chest_Wood_Base_Color.png */,
+				D8862C892592032300813DCE /* chest.mtl */,
+				D8862C872592032300813DCE /* chest.obj */,
+			);
+			path = chest;
 			sourceTree = "<group>";
 		};
 		D8D1C7BC257A8CD400D12B5A /* Types */ = {
@@ -310,6 +332,7 @@
 				D8D1C7BE257A8D4C00D12B5A /* Quad.swift */,
 				D8DBA4BA257FDAA00063FEC2 /* Cruiser.swift */,
 				D8DD67C225910DBC0091325E /* SuzanneMonkey.swift */,
+				D8862C922592033400813DCE /* Chest.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -551,11 +574,15 @@
 				D883F3DF258E543300314E70 /* breakingbad.png in Resources */,
 				D8DD67BD25910D810091325E /* SuzanneMonkey.obj in Resources */,
 				D8DD67BE25910D810091325E /* SuzanneMonkey.mtl in Resources */,
+				D8862C8D2592032300813DCE /* chest.mtl in Resources */,
+				D8862C8B2592032300813DCE /* chest.obj in Resources */,
+				D8862C8C2592032300813DCE /* Chest_Metal_Base_Color.png in Resources */,
 				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
 				D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */,
 				D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */,
+				D8862C8E2592032300813DCE /* Chest_Wood_Base_Color.png in Resources */,
 				D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +629,7 @@
 				D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */,
 				E8508017256952CE00A43698 /* DepthStencilStateLibrary.swift in Sources */,
 				D8D1C7EE257BAD9200D12B5A /* Entities.swift in Sources */,
+				D8862C932592033400813DCE /* Chest.swift in Sources */,
 				E80053922567BA0200E38471 /* SceneManger.swift in Sources */,
 				D84D6362258E30190080C203 /* BasicShaders.metal in Sources */,
 				E8D9E21425656BA500591CB4 /* Preference.swift in Sources */,

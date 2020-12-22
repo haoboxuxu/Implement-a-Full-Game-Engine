@@ -18,27 +18,27 @@ class DebugCamera: Camera {
     }
     
     override func doUpdate() {
-        if (Keyboard.ISKeyPressed(.leftArrow)) {
+        if Keyboard.ISKeyPressed(.leftArrow) {
             self.moveX(-GameTime.DeltaTime)
         }
         
-        if (Keyboard.ISKeyPressed(.rightArrow)) {
+        if Keyboard.ISKeyPressed(.rightArrow) {
             self.moveX(GameTime.DeltaTime)
         }
         
-        if (Keyboard.ISKeyPressed(.upArrow)) {
+        if Keyboard.ISKeyPressed(.upArrow) {
             self.moveY(GameTime.DeltaTime)
         }
         
-        if (Keyboard.ISKeyPressed(.downArrow)) {
+        if Keyboard.ISKeyPressed(.downArrow) {
             self.moveY(-GameTime.DeltaTime)
         }
         
-        if(Mouse.IsMouseButtonPressed(button: .right)) {
+        if Mouse.IsMouseButtonPressed(button: .right) {
             self.rotate(Mouse.GetDY() * GameTime.DeltaTime * 0.1, Mouse.GetDX() * GameTime.DeltaTime * 0.1, 0)
         }
         
-        if(Mouse.IsMouseButtonPressed(button: .center)) {
+        if Mouse.IsMouseButtonPressed(button: .center) {
             self.moveX(-Mouse.GetDX() * GameTime.DeltaTime)
             self.moveY(Mouse.GetDY() * GameTime.DeltaTime)
         }
