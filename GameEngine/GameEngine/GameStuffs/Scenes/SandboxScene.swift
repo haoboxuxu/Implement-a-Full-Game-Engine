@@ -29,7 +29,13 @@ class SandboxScene: Scene {
         debugCamera.setPosition(float3(0, 0, 7))
         addCamera(debugCamera)
         
-        addWhiteLight()
+        addSun()
+        
+        
+        // custom material
+        //var material = Material()
+        //material.diffuse = float3(0.2, 1, 0.2)
+        //chest.useMaterial(material)
         
         addChild(chest)
     }
@@ -40,41 +46,32 @@ class SandboxScene: Scene {
         }
     }
     
-    func addWhiteLight() {
+    func addSun() {
         sun.setPosition(float3(0, 1, 10))
-        sun.setMaterialIsLit(false)
         sun.setLightBrightness(0.3)
-        sun.setMaterialColor(float4(1, 1, 1, 1))
         sun.setLightColor(float3(1, 1, 1))
         sun.setLightBrightness(0.3)
+        sun.setLightAmbientIntensity(0.03)
         addLight(sun)
     }
     
     func buildCruiserPhongScene() {
-        cruiser.setMaterialAmbient(0.01)
         addChild(cruiser)
     }
     
     func buildQuadMipmapPhongScene() {
-        quad.setMaterialAmbient(0.3)
-        quad.setMaterialShininess(10)
-        quad.setMaterialSpecular(5)
-        quad.setTexture(.BreakingBad)
+        quad.useBaseColorTexture(.BreakingBad)
         quad.setPositionZ(-2)
         addChild(quad)
     }
     
     func addPhongLights() {
         leftSun.setPosition(float3(-1, 1, 0))
-        leftSun.setMaterialIsLit(false)
-        leftSun.setMaterialColor(float4(1, 0, 0, 1))
         leftSun.setLightColor(float3(1, 0, 0))
         leftSun.setLightBrightness(0.3)
         addLight(leftSun)
 
         rightSun.setPosition(float3(1, 1, 0))
-        rightSun.setMaterialIsLit(false)
-        rightSun.setMaterialColor(float4(0, 0, 1, 1))
         rightSun.setLightColor(float3(0, 0, 1))
         rightSun.setLightBrightness(0.3)
         addLight(rightSun)
