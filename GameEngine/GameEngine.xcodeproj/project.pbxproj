@@ -23,6 +23,11 @@
 		D8862C8D2592032300813DCE /* chest.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8862C892592032300813DCE /* chest.mtl */; };
 		D8862C8E2592032300813DCE /* Chest_Wood_Base_Color.png in Resources */ = {isa = PBXBuildFile; fileRef = D8862C8A2592032300813DCE /* Chest_Wood_Base_Color.png */; };
 		D8862C932592033400813DCE /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8862C922592033400813DCE /* Chest.swift */; };
+		D887420A25961FF2001C9E00 /* quad.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D887420825961FF2001C9E00 /* quad.mtl */; };
+		D887420B25961FF2001C9E00 /* quad.obj in Resources */ = {isa = PBXBuildFile; fileRef = D887420925961FF2001C9E00 /* quad.obj */; };
+		D8874213259621CC001C9E00 /* metal_plate_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = D8874211259621CC001C9E00 /* metal_plate_nor.png */; };
+		D8874214259621CC001C9E00 /* metal_plate_diff.png in Resources */ = {isa = PBXBuildFile; fileRef = D8874212259621CC001C9E00 /* metal_plate_diff.png */; };
+		D8874219259624F3001C9E00 /* normal_example.png in Resources */ = {isa = PBXBuildFile; fileRef = D8874218259624F3001C9E00 /* normal_example.png */; };
 		D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D124A02589B8C0006D676E /* ShaderLibrary.swift */; };
 		D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7BE257A8D4C00D12B5A /* Quad.swift */; };
 		D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */; };
@@ -105,6 +110,11 @@
 		D8862C892592032300813DCE /* chest.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chest.mtl; sourceTree = "<group>"; };
 		D8862C8A2592032300813DCE /* Chest_Wood_Base_Color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chest_Wood_Base_Color.png; sourceTree = "<group>"; };
 		D8862C922592033400813DCE /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		D887420825961FF2001C9E00 /* quad.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = quad.mtl; sourceTree = "<group>"; };
+		D887420925961FF2001C9E00 /* quad.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = quad.obj; sourceTree = "<group>"; };
+		D8874211259621CC001C9E00 /* metal_plate_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal_plate_nor.png; sourceTree = "<group>"; };
+		D8874212259621CC001C9E00 /* metal_plate_diff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal_plate_diff.png; sourceTree = "<group>"; };
+		D8874218259624F3001C9E00 /* normal_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_example.png; sourceTree = "<group>"; };
 		D8D124A02589B8C0006D676E /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
 		D8D1C7BE257A8D4C00D12B5A /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
@@ -188,6 +198,7 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D887420725961FE5001C9E00 /* quad */,
 				D8862C862592031200813DCE /* chest */,
 				D8DD67BA25910D750091325E /* SuzanneMonkey */,
 				D883F3DE258E543300314E70 /* breakingbad.png */,
@@ -206,6 +217,18 @@
 				D8862C872592032300813DCE /* chest.obj */,
 			);
 			path = chest;
+			sourceTree = "<group>";
+		};
+		D887420725961FE5001C9E00 /* quad */ = {
+			isa = PBXGroup;
+			children = (
+				D8874218259624F3001C9E00 /* normal_example.png */,
+				D8874212259621CC001C9E00 /* metal_plate_diff.png */,
+				D8874211259621CC001C9E00 /* metal_plate_nor.png */,
+				D887420825961FF2001C9E00 /* quad.mtl */,
+				D887420925961FF2001C9E00 /* quad.obj */,
+			);
+			path = quad;
 			sourceTree = "<group>";
 		};
 		D8D1C7BC257A8CD400D12B5A /* Types */ = {
@@ -576,11 +599,16 @@
 				D8DD67BE25910D810091325E /* SuzanneMonkey.mtl in Resources */,
 				D8862C8D2592032300813DCE /* chest.mtl in Resources */,
 				D8862C8B2592032300813DCE /* chest.obj in Resources */,
+				D8874219259624F3001C9E00 /* normal_example.png in Resources */,
 				D8862C8C2592032300813DCE /* Chest_Metal_Base_Color.png in Resources */,
+				D887420B25961FF2001C9E00 /* quad.obj in Resources */,
 				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,
 				E8AEF5A5256517B10019AFFA /* Main.storyboard in Resources */,
 				D8DBA4B4257FD4BD0063FEC2 /* cruiser.mtl in Resources */,
+				D8874214259621CC001C9E00 /* metal_plate_diff.png in Resources */,
+				D887420A25961FF2001C9E00 /* quad.mtl in Resources */,
+				D8874213259621CC001C9E00 /* metal_plate_nor.png in Resources */,
 				D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */,
 				D8862C8E2592032300813DCE /* Chest_Wood_Base_Color.png in Resources */,
 				D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */,
