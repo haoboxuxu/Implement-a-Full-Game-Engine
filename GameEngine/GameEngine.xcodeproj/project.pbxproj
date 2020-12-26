@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D82ED71425975BEA00BAB7C6 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D82ED71325975BEA00BAB7C6 /* sphere.mtl */; };
 		D83C8EC3258463240092D34D /* LightObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8EC2258463240092D34D /* LightObject.swift */; };
 		D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECA2584645C0092D34D /* LightManger.swift */; };
 		D83C8ED02584665A0092D34D /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECF2584665A0092D34D /* Sun.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D82ED71325975BEA00BAB7C6 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		D83C8EC2258463240092D34D /* LightObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightObject.swift; sourceTree = "<group>"; };
 		D83C8ECA2584645C0092D34D /* LightManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightManger.swift; sourceTree = "<group>"; };
 		D83C8ECF2584665A0092D34D /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
@@ -195,14 +197,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D82ED71225975BD800BAB7C6 /* sphere */ = {
+			isa = PBXGroup;
+			children = (
+				D82ED71325975BEA00BAB7C6 /* sphere.mtl */,
+				D83C8ED4258467910092D34D /* sphere.obj */,
+			);
+			path = sphere;
+			sourceTree = "<group>";
+		};
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D82ED71225975BD800BAB7C6 /* sphere */,
 				D887420725961FE5001C9E00 /* quad */,
 				D8862C862592031200813DCE /* chest */,
 				D8DD67BA25910D750091325E /* SuzanneMonkey */,
 				D883F3DE258E543300314E70 /* breakingbad.png */,
-				D83C8ED4258467910092D34D /* sphere.obj */,
 				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 			);
 			path = resource;
@@ -601,6 +612,7 @@
 				D8862C8B2592032300813DCE /* chest.obj in Resources */,
 				D8874219259624F3001C9E00 /* normal_example.png in Resources */,
 				D8862C8C2592032300813DCE /* Chest_Metal_Base_Color.png in Resources */,
+				D82ED71425975BEA00BAB7C6 /* sphere.mtl in Resources */,
 				D887420B25961FF2001C9E00 /* quad.obj in Resources */,
 				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
 				E8AEF5A2256517B10019AFFA /* Assets.xcassets in Resources */,

@@ -11,6 +11,6 @@ class Sun: LightObject {
     init() {
         //super.init(meshType: .Sphere, name: "Sun") //show sphere
         super.init(name: "Sun")
-        self.setScale(0.1)
+        self.setScale(0.3)
     }
 }

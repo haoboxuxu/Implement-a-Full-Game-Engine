@@ -47,7 +47,7 @@ struct Material {
     float4 color;
     bool isLit;
     float3 ambient;
-    float3 difuse;
+    float3 diffuse;
     float3 specular;
     float shininess;
 };
@@ -57,7 +57,7 @@ struct LightData {
     float3 color;
     float brightness;
     float ambientIntensity;
-    float difuseIntensity;
+    float diffuseIntensity;
     float specularIntensity;
 };
 

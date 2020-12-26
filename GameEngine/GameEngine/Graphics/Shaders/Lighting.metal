@@ -37,7 +37,7 @@ public:
             totalAmbient += ambientColor;
 
             // Diffuse Lighting
-            float3 diffuseness = material.difuse * lightData.difuseIntensity;
+            float3 diffuseness = material.diffuse * lightData.diffuseIntensity;
             float nDotL = max(dot(unitNormal, unitToLightVector), 0.0);
             float3 diffuseColor = clamp(diffuseness * nDotL * lightData.color * lightData.brightness, 0.0, 1.0);
             totalDiffuse += diffuseColor;
