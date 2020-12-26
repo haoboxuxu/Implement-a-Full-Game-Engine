@@ -47,7 +47,7 @@ public:
             float rDotV = max(dot(unitReflectionVector, unitToCameraVector), 0.0);
             float specularExp = pow(rDotV, material.shininess);
             float3 specularColor = clamp(specularness * specularExp * lightData.color * lightData.brightness, 0.0, 1.0);
-            totalSpecular += specularColor;
+            totalSpecular += specularColor * 10;
         }
         
         return totalAmbient + totalDiffuse + totalSpecular;

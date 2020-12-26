@@ -24,6 +24,8 @@ class SandboxScene: Scene {
         sun.setLightAmbientIntensity(0.1)
         addLight(sun)
         
+        quad.useBaseColorTexture(.MetalPlateDiffuse)
+        quad.useNormalMapTexture(.MetalPlateNormal)
         addChild(quad)
     }
 
