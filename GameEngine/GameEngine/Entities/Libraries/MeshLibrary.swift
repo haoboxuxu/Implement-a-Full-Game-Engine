@@ -156,7 +156,7 @@ class Mesh {
 
                     submesh.applyTextures(renderCommandEncoder: renderCommandEncoder,
                                           customBaseColorTextureType: baseColorTextureType,
-                                          normalMapTextureType: normalMapTextureType)
+                                          customnormalMapTextureType: normalMapTextureType)
 
                     submesh.applyMaterials(renderCommandEncoder: renderCommandEncoder,
                                            customMaterial: material)
@@ -278,14 +278,19 @@ class Submesh {
 
     func applyTextures(renderCommandEncoder: MTLRenderCommandEncoder,
                       customBaseColorTextureType: TextureTypes,
-                      normalMapTextureType: TextureTypes) {
-
-        renderCommandEncoder.setFragmentSamplerState(Graphics.SamplerStates[.Linear], index: 0)
+                      customnormalMapTextureType: TextureTypes) {
+        
+        _material.useBaseTexture = customBaseColorTextureType != .None || _baseColorTexture != nil
+        _material.useNormalMapTexture = customnormalMapTextureType != .None || _normalMapTexture != nil
+        
+        if _material.useBaseTexture || _material.useNormalMapTexture {
+            renderCommandEncoder.setFragmentSamplerState(Graphics.SamplerStates[.Linear], index: 0)
+        }
 
         let baseColorTex = customBaseColorTextureType == .None ? _baseColorTexture : Entities.Textures[customBaseColorTextureType]
         renderCommandEncoder.setFragmentTexture(baseColorTex, index: 0)
 
-        let normalMapTex = normalMapTextureType == .None ? _normalMapTexture : Entities.Textures[normalMapTextureType]
+        let normalMapTex = customnormalMapTextureType == .None ? _normalMapTexture : Entities.Textures[customnormalMapTextureType]
         renderCommandEncoder.setFragmentTexture(normalMapTex, index: 1)
     }
 

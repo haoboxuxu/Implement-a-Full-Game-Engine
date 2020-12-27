@@ -13,6 +13,7 @@ class SandboxScene: Scene {
     var debugCamera = DebugCamera()
     
     var quad = Quad()
+    var quda2 = Quad()
     var sun = Sun()
 
 
@@ -27,6 +28,11 @@ class SandboxScene: Scene {
         quad.useBaseColorTexture(.MetalPlateDiffuse)
         quad.useNormalMapTexture(.MetalPlateNormal)
         addChild(quad)
+        
+//        quda2.useBaseColorTexture(.BreakingBad)
+//        quda2.useNormalMapTexture(.None)
+        quda2.moveX(-2)
+        addChild(quda2)
     }
 
     override func doUpdate() {
