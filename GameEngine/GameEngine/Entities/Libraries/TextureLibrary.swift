@@ -44,12 +44,6 @@ class Texture {
     }
 }
 
-
-public enum TextureOrigin {
-    case TopLeft
-    case BottomLeft
-}
-
 class TextureLoader {
     private var _textureName: String!
     private var _textureExtension: String!

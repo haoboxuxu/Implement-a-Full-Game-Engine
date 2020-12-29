@@ -17,6 +17,28 @@ enum MeshTypes {
     case Sphere
     case SuzanneMonkey
     case Chest
+
+    ///UnReal
+    //terrain
+    case terrain
+    //characters
+    case alien
+    case astronautA
+    case astronautB
+    //cityunits
+    case turret_double
+    case machine_barrelLarge
+    case machine_generator
+    case machine_wireless
+    //holidays
+    case present
+    case presentGreen
+    case snowman
+    case snowmanFancy
+    case treeDecorated
+    case treePineSnow
+    case treePineSnowed
+    case wreath
 }
 
 class MeshLibrary: Library<MeshTypes, Mesh> {
@@ -32,6 +54,28 @@ class MeshLibrary: Library<MeshTypes, Mesh> {
         _library.updateValue(Mesh(modelName: "sphere"), forKey: .Sphere)
         _library.updateValue(Mesh(modelName: "SuzanneMonkey"), forKey: .SuzanneMonkey)
         _library.updateValue(Mesh(modelName: "chest"), forKey: .Chest)
+
+        //UnReal
+        //terrian
+        _library.updateValue(Mesh(modelName: "terrain"), forKey: .terrain)
+        //characters
+        _library.updateValue(Mesh(modelName: "alien"), forKey: .alien)
+        _library.updateValue(Mesh(modelName: "astronautA"), forKey: .astronautA)
+        _library.updateValue(Mesh(modelName: "astronautB"), forKey: .astronautB)
+        //cityunits
+        _library.updateValue(Mesh(modelName: "turret_double"), forKey: .turret_double)
+        _library.updateValue(Mesh(modelName: "machine_barrelLarge"), forKey: .machine_barrelLarge)
+        _library.updateValue(Mesh(modelName: "machine_generator"), forKey: .machine_generator)
+        _library.updateValue(Mesh(modelName: "machine_wireless"), forKey: .machine_wireless)
+        //holidays
+        _library.updateValue(Mesh(modelName: "present"), forKey: .present)
+        _library.updateValue(Mesh(modelName: "presentGreen"), forKey: .presentGreen)
+        _library.updateValue(Mesh(modelName: "snowman"), forKey: .snowman)
+        _library.updateValue(Mesh(modelName: "snowmanFancy"), forKey: .snowmanFancy)
+        _library.updateValue(Mesh(modelName: "treeDecorated"), forKey: .treeDecorated)
+        _library.updateValue(Mesh(modelName: "treePineSnow"), forKey: .treePineSnow)
+        _library.updateValue(Mesh(modelName: "treePineSnowed"), forKey: .treePineSnowed)
+        _library.updateValue(Mesh(modelName: "wreath"), forKey: .wreath)
     }
 
     override subscript(type: MeshTypes) -> Mesh {
@@ -165,7 +209,7 @@ class Mesh {
                                                                indexCount: submesh.indexCount,
                                                                indexType: submesh.indexType,
                                                                indexBuffer: submesh.indexBuffer,
-                                                               indexBufferOffset: submesh.indexBufferOfferset)
+                                                               indexBufferOffset: submesh.indexBufferOffset)
                 }
 
             }else {
@@ -201,15 +245,14 @@ class Submesh {
         _indexType
     }
 
-    private var _indexBufferOfferset: Int = 0
-    public var indexBufferOfferset: Int {
-        _indexBufferOfferset
+    private var _indexBufferOffset: Int = 0
+    public var indexBufferOffset: Int {
+        _indexBufferOffset
     }
 
     private var _material = Material()
 
     private var _baseColorTexture: MTLTexture!
-
     private var _normalMapTexture: MTLTexture!
 
     init(indices: [UInt32]) {
@@ -220,7 +263,7 @@ class Submesh {
 
     init(mtkSubmesh: MTKSubmesh, mdlSubmesh: MDLSubmesh) {
         _indexBuffer = mtkSubmesh.indexBuffer.buffer
-        _indexBufferOfferset = mtkSubmesh.indexBuffer.offset
+        _indexBufferOffset = mtkSubmesh.indexBuffer.offset
         _indexCount = mtkSubmesh.indexCount
         _indexType = mtkSubmesh.indexType
         _primitiveType = mtkSubmesh.primitiveType
@@ -279,13 +322,11 @@ class Submesh {
     func applyTextures(renderCommandEncoder: MTLRenderCommandEncoder,
                       customBaseColorTextureType: TextureTypes,
                       customnormalMapTextureType: TextureTypes) {
-        
+
         _material.useBaseTexture = customBaseColorTextureType != .None || _baseColorTexture != nil
         _material.useNormalMapTexture = customnormalMapTextureType != .None || _normalMapTexture != nil
         
-        if _material.useBaseTexture || _material.useNormalMapTexture {
-            renderCommandEncoder.setFragmentSamplerState(Graphics.SamplerStates[.Linear], index: 0)
-        }
+        renderCommandEncoder.setFragmentSamplerState(Graphics.SamplerStates[.Linear], index: 0)
 
         let baseColorTex = customBaseColorTextureType == .None ? _baseColorTexture : Entities.Textures[customBaseColorTextureType]
         renderCommandEncoder.setFragmentTexture(baseColorTex, index: 0)
