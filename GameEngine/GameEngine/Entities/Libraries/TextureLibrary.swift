@@ -13,6 +13,12 @@ enum TextureTypes {
     case Cruiser
     case MetalPlateDiffuse
     case MetalPlateNormal
+    
+    //planet
+    case earth_daymap
+    case earth_nightmap
+    case moon
+    case moon_terrian
 }
 
 class TextureLibrary: Library<TextureTypes, MTLTexture> {
@@ -23,6 +29,12 @@ class TextureLibrary: Library<TextureTypes, MTLTexture> {
         _library.updateValue(Texture("cruiser", ext: "bmp", origin: .bottomLeft), forKey: .Cruiser)
         _library.updateValue(Texture("metal_plate_diff"), forKey: .MetalPlateDiffuse)
         _library.updateValue(Texture("metal_plate_nor"), forKey: .MetalPlateNormal)
+        
+        //planet
+        _library.updateValue(Texture("earth_daymap", ext: "jpg", origin: .topLeft), forKey: .earth_daymap)
+        _library.updateValue(Texture("earth_nightmap", ext: "jpg", origin: .topLeft), forKey: .earth_nightmap)
+        _library.updateValue(Texture("moon", ext: "jpg", origin: .topLeft), forKey: .moon)
+        _library.updateValue(Texture("moon_terrian", ext: "jpg", origin: .topLeft), forKey: .moon_terrian)
     }
 
     override subscript(type: TextureTypes) -> MTLTexture? {

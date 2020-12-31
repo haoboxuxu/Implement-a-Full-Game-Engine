@@ -209,7 +209,8 @@ class Mesh {
                                                                indexCount: submesh.indexCount,
                                                                indexType: submesh.indexType,
                                                                indexBuffer: submesh.indexBuffer,
-                                                               indexBufferOffset: submesh.indexBufferOffset)
+                                                               indexBufferOffset: submesh.indexBufferOffset,
+                                                               instanceCount: _instanceCount)
                 }
 
             }else {

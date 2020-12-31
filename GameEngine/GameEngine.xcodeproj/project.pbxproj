@@ -10,6 +10,8 @@
 		D82ED71425975BEA00BAB7C6 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D82ED71325975BEA00BAB7C6 /* sphere.mtl */; };
 		D82ED71B259760DF00BAB7C6 /* metal_plate_diff.png in Resources */ = {isa = PBXBuildFile; fileRef = D82ED719259760DF00BAB7C6 /* metal_plate_diff.png */; };
 		D82ED71C259760DF00BAB7C6 /* metal_plate_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = D82ED71A259760DF00BAB7C6 /* metal_plate_nor.png */; };
+		D8378AEF259DD5600039FAB2 /* TreesInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8378AEE259DD5600039FAB2 /* TreesInstance.swift */; };
+		D8378AF7259DD8980039FAB2 /* StarInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8378AF6259DD8980039FAB2 /* StarInstance.swift */; };
 		D83C8EC3258463240092D34D /* LightObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8EC2258463240092D34D /* LightObject.swift */; };
 		D83C8ECB2584645C0092D34D /* LightManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECA2584645C0092D34D /* LightManger.swift */; };
 		D83C8ED02584665A0092D34D /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83C8ECF2584665A0092D34D /* Sun.swift */; };
@@ -62,7 +64,12 @@
 		D8C5062D259A6DE700283E0A /* treePineSnow.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8C50629259A6DE600283E0A /* treePineSnow.mtl */; };
 		D8C5062E259A6DE700283E0A /* treePineSnowed.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D8C5062A259A6DE600283E0A /* treePineSnowed.mtl */; };
 		D8C5062F259A6DE700283E0A /* treePineSnowed.obj in Resources */ = {isa = PBXBuildFile; fileRef = D8C5062B259A6DE700283E0A /* treePineSnowed.obj */; };
-		D8C50645259A755900283E0A /* terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C50644259A755900283E0A /* terrain.swift */; };
+		D8C50645259A755900283E0A /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C50644259A755900283E0A /* Terrain.swift */; };
+		D8C50660259B397C00283E0A /* earth_nightmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8C5065D259B397C00283E0A /* earth_nightmap.jpg */; };
+		D8C5066A259B39C500283E0A /* earth_daymap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8C50668259B39C500283E0A /* earth_daymap.jpg */; };
+		D8C50672259B3A6000283E0A /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C50671259B3A6000283E0A /* Planets.swift */; };
+		D8C5067A259B430A00283E0A /* moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8C50679259B430A00283E0A /* moon.jpg */; };
+		D8C5067F259B43E700283E0A /* moon_terrian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8C5067E259B43E700283E0A /* moon_terrian.jpg */; };
 		D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D124A02589B8C0006D676E /* ShaderLibrary.swift */; };
 		D8D1C7BF257A8D4C00D12B5A /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7BE257A8D4C00D12B5A /* Quad.swift */; };
 		D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */; };
@@ -132,6 +139,8 @@
 		D82ED71325975BEA00BAB7C6 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		D82ED719259760DF00BAB7C6 /* metal_plate_diff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal_plate_diff.png; sourceTree = "<group>"; };
 		D82ED71A259760DF00BAB7C6 /* metal_plate_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal_plate_nor.png; sourceTree = "<group>"; };
+		D8378AEE259DD5600039FAB2 /* TreesInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreesInstance.swift; sourceTree = "<group>"; };
+		D8378AF6259DD8980039FAB2 /* StarInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarInstance.swift; sourceTree = "<group>"; };
 		D83C8EC2258463240092D34D /* LightObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightObject.swift; sourceTree = "<group>"; };
 		D83C8ECA2584645C0092D34D /* LightManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightManger.swift; sourceTree = "<group>"; };
 		D83C8ECF2584665A0092D34D /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
@@ -184,7 +193,12 @@
 		D8C50629259A6DE600283E0A /* treePineSnow.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treePineSnow.mtl; sourceTree = "<group>"; };
 		D8C5062A259A6DE600283E0A /* treePineSnowed.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treePineSnowed.mtl; sourceTree = "<group>"; };
 		D8C5062B259A6DE700283E0A /* treePineSnowed.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treePineSnowed.obj; sourceTree = "<group>"; };
-		D8C50644259A755900283E0A /* terrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = terrain.swift; sourceTree = "<group>"; };
+		D8C50644259A755900283E0A /* Terrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terrain.swift; sourceTree = "<group>"; };
+		D8C5065D259B397C00283E0A /* earth_nightmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_nightmap.jpg; sourceTree = "<group>"; };
+		D8C50668259B39C500283E0A /* earth_daymap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_daymap.jpg; sourceTree = "<group>"; };
+		D8C50671259B3A6000283E0A /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
+		D8C50679259B430A00283E0A /* moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon.jpg; sourceTree = "<group>"; };
+		D8C5067E259B43E700283E0A /* moon_terrian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon_terrian.jpg; sourceTree = "<group>"; };
 		D8D124A02589B8C0006D676E /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
 		D8D1C7BE257A8D4C00D12B5A /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D8D1C7C3257B8C1C00D12B5A /* GameTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
@@ -286,13 +300,13 @@
 		D882C7D0257E8B920020AD75 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				D8C5065A259B38D900283E0A /* imgs */,
 				D8C505AA259A6BB000283E0A /* UnRealObjects */,
 				D82ED718259760C200BAB7C6 /* MetalPlate */,
 				D82ED71225975BD800BAB7C6 /* sphere */,
 				D887420725961FE5001C9E00 /* quad */,
 				D8862C862592031200813DCE /* chest */,
 				D8DD67BA25910D750091325E /* SuzanneMonkey */,
-				D883F3DE258E543300314E70 /* breakingbad.png */,
 				D8DBA4B0257FD4AD0063FEC2 /* cruiser */,
 			);
 			path = resource;
@@ -388,6 +402,18 @@
 				D8C505FF259A6D8D00283E0A /* presentGreen.obj */,
 			);
 			path = holidays;
+			sourceTree = "<group>";
+		};
+		D8C5065A259B38D900283E0A /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				D8C5067E259B43E700283E0A /* moon_terrian.jpg */,
+				D8C50679259B430A00283E0A /* moon.jpg */,
+				D8C50668259B39C500283E0A /* earth_daymap.jpg */,
+				D8C5065D259B397C00283E0A /* earth_nightmap.jpg */,
+				D883F3DE258E543300314E70 /* breakingbad.png */,
+			);
+			path = imgs;
 			sourceTree = "<group>";
 		};
 		D8D1C7BC257A8CD400D12B5A /* Types */ = {
@@ -509,6 +535,7 @@
 				E83926CF256D110400667625 /* InstanceGameObject.swift */,
 				D83C8EC2258463240092D34D /* LightObject.swift */,
 				D83C8ECF2584665A0092D34D /* Sun.swift */,
+				D8C50671259B3A6000283E0A /* Planets.swift */,
 				E8189D792566B2FD00A56C22 /* Pointer.swift */,
 				E850800E25694F3100A43698 /* Cube.swift */,
 				E83926D7256D1EE500667625 /* CubeCollection.swift */,
@@ -516,7 +543,9 @@
 				D8DBA4BA257FDAA00063FEC2 /* Cruiser.swift */,
 				D8DD67C225910DBC0091325E /* SuzanneMonkey.swift */,
 				D8862C922592033400813DCE /* Chest.swift */,
-				D8C50644259A755900283E0A /* terrain.swift */,
+				D8C50644259A755900283E0A /* Terrain.swift */,
+				D8378AEE259DD5600039FAB2 /* TreesInstance.swift */,
+				D8378AF6259DD8980039FAB2 /* StarInstance.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -765,6 +794,7 @@
 				D8862C8B2592032300813DCE /* chest.obj in Resources */,
 				D8874219259624F3001C9E00 /* normal_example.png in Resources */,
 				D8C505B7259A6C8100283E0A /* astronautB.obj in Resources */,
+				D8C5066A259B39C500283E0A /* earth_daymap.jpg in Resources */,
 				D8C505DB259A6D2200283E0A /* terrain.obj in Resources */,
 				D8C50600259A6D8D00283E0A /* presentGreen.mtl in Resources */,
 				D8862C8C2592032300813DCE /* Chest_Metal_Base_Color.png in Resources */,
@@ -784,6 +814,7 @@
 				D82ED71425975BEA00BAB7C6 /* sphere.mtl in Resources */,
 				D8C505D4259A6CD000283E0A /* machine_barrelLarge.mtl in Resources */,
 				D887420B25961FF2001C9E00 /* quad.obj in Resources */,
+				D8C50660259B397C00283E0A /* earth_nightmap.jpg in Resources */,
 				D8C5062F259A6DE700283E0A /* treePineSnowed.obj in Resources */,
 				D8C505CA259A6CD000283E0A /* machine_generator.mtl in Resources */,
 				D83C8ED5258467910092D34D /* sphere.obj in Resources */,
@@ -803,6 +834,8 @@
 				D8C505CB259A6CD000283E0A /* machine_wireless.mtl in Resources */,
 				D8C50601259A6D8D00283E0A /* presentGreen.obj in Resources */,
 				D8DBA4B5257FD4BD0063FEC2 /* cruiser.bmp in Resources */,
+				D8C5067A259B430A00283E0A /* moon.jpg in Resources */,
+				D8C5067F259B43E700283E0A /* moon_terrian.jpg in Resources */,
 				D8862C8E2592032300813DCE /* Chest_Wood_Base_Color.png in Resources */,
 				D8C505B8259A6C8100283E0A /* astronautB.mtl in Resources */,
 				D8DBA4B6257FD4BD0063FEC2 /* cruiser.obj in Resources */,
@@ -830,17 +863,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8378AF7259DD8980039FAB2 /* StarInstance.swift in Sources */,
 				D8D1C7C4257B8C1C00D12B5A /* GameTime.swift in Sources */,
 				E8189D852566BAEA00A56C22 /* Renderable.swift in Sources */,
 				E85080072569243E00A43698 /* CameraManger.swift in Sources */,
 				E85DFFC3256572E500BFF800 /* VertexDescriptorLibrary.swift in Sources */,
 				E80053812567B73F00E38471 /* Scene.swift in Sources */,
 				D8D1C7D2257B974300D12B5A /* Graphics.swift in Sources */,
+				D8378AEF259DD5600039FAB2 /* TreesInstance.swift in Sources */,
 				D84D6364258E30190080C203 /* Lighting.metal in Sources */,
 				D8DBA4BB257FDAA00063FEC2 /* Cruiser.swift in Sources */,
 				D8D124A12589B8C0006D676E /* ShaderLibrary.swift in Sources */,
 				E8D9E20C256567A400591CB4 /* Engine.swift in Sources */,
 				E8189D752566AE1000A56C22 /* MeshLibrary.swift in Sources */,
+				D8C50672259B3A6000283E0A /* Planets.swift in Sources */,
 				E8F02D8A2567E9BC009F1943 /* Mouse.swift in Sources */,
 				E8508002256920C000A43698 /* DebugCamera.swift in Sources */,
 				D882C7D7257E8D9C0020AD75 /* TextureLibrary.swift in Sources */,
@@ -874,7 +910,7 @@
 				E83926D8256D1EE500667625 /* CubeCollection.swift in Sources */,
 				E8507FFA25691FE600A43698 /* Camera.swift in Sources */,
 				E8189D7A2566B2FD00A56C22 /* Pointer.swift in Sources */,
-				D8C50645259A755900283E0A /* terrain.swift in Sources */,
+				D8C50645259A755900283E0A /* Terrain.swift in Sources */,
 				E83926D0256D110400667625 /* InstanceGameObject.swift in Sources */,
 				D84D6361258E30190080C203 /* InstanceShaders.metal in Sources */,
 				E80053892567B88E00E38471 /* SandboxScene.swift in Sources */,

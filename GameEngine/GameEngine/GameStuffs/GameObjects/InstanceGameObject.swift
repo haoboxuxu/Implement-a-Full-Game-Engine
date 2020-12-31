@@ -24,6 +24,12 @@ class InstanceGameObject: Node {
         self.createBuffers(instanceCount)
     }
     
+    func updateNodes(_ updateNodeFuntion: (Node, Int) -> ()) {
+        for (index, node) in _nodes.enumerated() {
+            updateNodeFuntion(node, index)
+        }
+    }
+    
     func generateInstance(_ instanceCount: Int) {
         for _ in 0..<instanceCount {
             _nodes.append(Node(name: "\(getName())_InstancedNode"))
