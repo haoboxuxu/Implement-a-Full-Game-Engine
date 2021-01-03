@@ -19,6 +19,9 @@ enum TextureTypes {
     case earth_nightmap
     case moon
     case moon_terrian
+    
+    //skysphere
+    case galaxies
 }
 
 class TextureLibrary: Library<TextureTypes, MTLTexture> {
@@ -35,6 +38,9 @@ class TextureLibrary: Library<TextureTypes, MTLTexture> {
         _library.updateValue(Texture("earth_nightmap", ext: "jpg", origin: .topLeft), forKey: .earth_nightmap)
         _library.updateValue(Texture("moon", ext: "jpg", origin: .topLeft), forKey: .moon)
         _library.updateValue(Texture("moon_terrian", ext: "jpg", origin: .topLeft), forKey: .moon_terrian)
+        
+        //skysphere
+        _library.updateValue(Texture("galaxies", ext: "png", origin: .bottomLeft), forKey: .galaxies)
     }
 
     override subscript(type: TextureTypes) -> MTLTexture? {

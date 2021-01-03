@@ -42,57 +42,24 @@ class UnRealScene: Scene {
         addChild(trees)
         
         //presents
-        let presentCount: Int = 50
-        for i in 0..<presentCount {
-            let radius: Float = Float.random(in: 5...30)
-            let present = GameObject(name: "present", meshType: selectRandomPresenMeshType())
-            let pos = float3(cos(Float(i)) * radius,
-                             0,
-                             sin(Float(i)) * radius)
-            present.setPosition(pos)
-            present.rotateY(Float.random(in: 0...360))
-            addChild(present)
-        }
+        let presents = PresentInstance(presentCount: 200, presentGreenCount: 200)
+        addChild(presents)
         
         //snowmen
-        let snowmanCount: Int = 50
-        for i in 0..<snowmanCount {
-            let radius: Float = Float.random(in: 5...30)
-            let snowman = GameObject(name: "snowmanFancy", meshType: selectRandomSnowmanMeshType())
-            let pos = float3(cos(Float(i)) * radius,
-                             0,
-                             sin(Float(i)) * radius)
-            snowman.setPosition(pos)
-            snowman.rotateY(Float.random(in: 0...360))
-            addChild(snowman)
-        }
+        let snowman = SnowmenInstance(snowmanCount: 50, snowmanFancyCount: 50)
+        addChild(snowman)
         
         addStars()
+        //let stars = StarInstance(starCount: 2000)
+        //addChild(stars)
+        
+        let glaxySphere = GalaxySphere(skySphereTextureType: .galaxies)
+        addChild(glaxySphere)
     }
     
-    private func selectRandomPresenMeshType() -> MeshTypes {
-        let randVal = Int.random(in: 0...1)
-        switch randVal {
-        case 0:
-            return .present
-        case 1:
-            return .presentGreen
-        default:
-            return .present
-        }
-    }
     
-    private func selectRandomSnowmanMeshType() -> MeshTypes {
-        let randVal = Int.random(in: 0...1)
-        switch randVal {
-        case 0:
-            return .snowman
-        case 1:
-            return .snowmanFancy
-        default:
-            return .snowmanFancy
-        }
-    }
+    
+    
     
     private func addStars() {
         for _ in 0...2000 {

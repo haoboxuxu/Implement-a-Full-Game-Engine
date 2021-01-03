@@ -39,9 +39,14 @@ public:
             // Diffuse Lighting
             float3 diffuseness = material.diffuse * lightData.diffuseIntensity;
             float nDotL = max(dot(unitNormal, unitToLightVector), 0.0);
-            float3 diffuseColor = clamp(diffuseness * nDotL * lightData.color * lightData.brightness, 0.0, 1.0);
+            float corrected = max(nDotL, 0.3);
+            float3 diffuseColor = clamp(diffuseness * corrected * lightData.color * lightData.brightness, 0.0, 1.0);
             totalDiffuse += diffuseColor;
 
+            if (nDotL <= 0.0) {
+                totalAmbient += ambientColor;
+            }
+            
             // Specular Lighting
             float3 specularness = material.specular * lightData.specularIntensity;
             float rDotV = max(dot(unitReflectionVector, unitToCameraVector), 0.0);
