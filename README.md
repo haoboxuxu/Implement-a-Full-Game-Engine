@@ -1,4 +1,7 @@
 # Implement-a-Full-Game-Engine
+
+## GameEngine
+
 - using Metal kit
 - Swift
 - Run on both Mac and iOS
@@ -22,4 +25,26 @@
 - [x] sky box (sky sphere)
 - [ ] sky reflection
 - [ ] Ray Tracing
+
+### dependency
+
+```
+xcode11 or higher
+```
+
+
+
+## GameEngineOpenGl
+
+- c++
+- run on visual studio
+- using OpenGL frameworks
+- reference: https://learnopengl.com/Getting-started
+
+### dependency
+
+```
+glfw https://www.glfw.org/
+http://glew.sourceforge.net/
+```
 
