@@ -1,2 +1,3 @@
 ﻿  main.cpp
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(116,19): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   OpenGle01.vcxproj -> C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\OpenGle01.exe
