@@ -12,5 +12,8 @@ public:
 	const char* fragmentSource;
 	unsigned int ID; // shader program id
 	void use();
+
+private:
+	void checkCompileErrors(unsigned int ID, std::string type);
 };
 

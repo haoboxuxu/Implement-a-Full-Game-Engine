@@ -156,10 +156,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="fragmentSource.txt" />
     <Text Include="vertextSource.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="minecraft.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
