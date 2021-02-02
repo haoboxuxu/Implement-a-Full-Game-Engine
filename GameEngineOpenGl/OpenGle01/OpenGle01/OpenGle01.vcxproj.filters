@@ -35,7 +35,7 @@
     <Text Include="vertextSource.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="minecraft.jpg">
+    <Image Include="wall.jpg">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
