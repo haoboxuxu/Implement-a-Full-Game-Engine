@@ -44,7 +44,9 @@ xcode11 or higher
 ### dependency
 
 ```
-glfw https://www.glfw.org/
-http://glew.sourceforge.net/
+glfw  https://www.glfw.org/
+glew  http://glew.sourceforge.net/
+stbi  https://github.com/nothings/stb/blob/master/stb_image.h
+glm   https://glm.g-truc.net/0.9.8/index.html
 ```
 
