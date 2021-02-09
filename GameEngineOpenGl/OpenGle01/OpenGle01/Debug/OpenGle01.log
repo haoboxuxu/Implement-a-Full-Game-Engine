@@ -1,2 +1,14 @@
-﻿  main.cpp
+﻿  Camera.cpp
+  main.cpp
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(98,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(99,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(104,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(105,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(107,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(108,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  Shader.cpp
+  正在生成代码...
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+LINK : warning LNK4098: 默认库“LIBCMT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: 未找到 PDB“vc120.pdb”(使用“glew32s.lib(glew.obj)”或在“C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\vc120.pdb”中寻找)；正在链接对象，如同没有调试信息一样
   OpenGle01.vcxproj -> C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\OpenGle01.exe

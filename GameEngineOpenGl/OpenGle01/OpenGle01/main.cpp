@@ -8,17 +8,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "Camera.h"
 using namespace std;
-/*
-float vertices[] = {
-	// positions          // colors           // texture coords
-	 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-	 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-	-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-	-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
-};
-*/
-
 
 float vertices[] = {
 	-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
@@ -77,15 +68,47 @@ glm::vec3 cubePositions[] = {
   glm::vec3(-1.3f,  1.0f, -1.5f)
 };
 
+float lastX;
+float lastY;
+bool firstMouse = true;
+
 unsigned int indices[] = {
 	0,1,2,
 	2,3,0
 };
 
+// Camera class
+Camera camera(glm::vec3(0, 0, 3.0f), glm::radians(15.0f), glm::radians(180.0f), glm::vec3(0, 1.0f, 0));
+
 void processInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
 	}
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+		camera.speedZ = 1.0f;
+	} else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+		camera.speedZ = -1.0f;
+	} else {
+		camera.speedZ = 0.0f;
+	}
+}
+
+void mouse_callback(GLFWwindow* window, double xPos, double yPos) {
+	if (firstMouse == true) {
+		lastX = xPos;
+		lastY = yPos;
+		firstMouse = false;
+	}
+
+	float deltaX, deltaY;
+	deltaX = xPos - lastX;
+	deltaY = yPos - lastY;
+
+	lastX = xPos;
+	lastY = yPos;
+
+	camera.ProcessMouseMovement(deltaX, deltaY);
+	printf("%f \n", xPos);
 }
 
 int main() {
@@ -103,6 +126,8 @@ int main() {
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(window, mouse_callback);
 
 	// init glew
 	glewExperimental = true;
@@ -178,13 +203,12 @@ int main() {
 	glm::mat4 modelMat;
 	modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0f, 0, 0));
 	glm::mat4 viewMat;
-	viewMat = glm::translate(viewMat, glm::vec3(0, 0, -3.0f));
+	//viewMat = camera.GetViewMatrix();
 	glm::mat4 projMat;
 	projMat = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
-		
 
 		processInput(window);
 
@@ -199,6 +223,7 @@ int main() {
 		glBindVertexArray(VAO);
 		// glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
+		viewMat = camera.GetViewMatrix();
 		
 		for (int i = 0; i < 10; i++) {
 			glm::mat4 modelMat2;
@@ -218,6 +243,8 @@ int main() {
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+
+		camera.UpdateCameraPos();
 	}
 
 	glfwTerminate();
