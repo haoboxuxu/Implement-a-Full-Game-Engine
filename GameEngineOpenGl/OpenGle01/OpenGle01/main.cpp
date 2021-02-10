@@ -11,6 +11,7 @@
 #include "Camera.h"
 using namespace std;
 
+#pragma region Model Data
 float vertices[] = {
 	-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 	 0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
@@ -67,18 +68,17 @@ glm::vec3 cubePositions[] = {
   glm::vec3(1.5f,  0.2f, -1.5f),
   glm::vec3(-1.3f,  1.0f, -1.5f)
 };
+#pragma endregion
 
+#pragma	region Camera Declare
+// Instantiate class
+Camera camera(glm::vec3(0, 0, 3.0f), glm::radians(15.0f), glm::radians(180.0f), glm::vec3(0, 1.0f, 0));
+#pragma endregion
+
+#pragma region Input Declare
 float lastX;
 float lastY;
 bool firstMouse = true;
-
-unsigned int indices[] = {
-	0,1,2,
-	2,3,0
-};
-
-// Camera class
-Camera camera(glm::vec3(0, 0, 3.0f), glm::radians(15.0f), glm::radians(180.0f), glm::vec3(0, 1.0f, 0));
 
 void processInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -111,8 +111,30 @@ void mouse_callback(GLFWwindow* window, double xPos, double yPos) {
 	printf("%f \n", xPos);
 }
 
+#pragma endregion
+
+unsigned int LoadImageToGPU(const char* filename, GLint internalFormat, GLenum format, int texttureSlot) {
+	unsigned int TexBuffer;
+	glGenTextures(1, &TexBuffer);
+	glActiveTexture(GL_TEXTURE0 + texttureSlot);
+	glBindTexture(GL_TEXTURE_2D, TexBuffer);
+
+	int width, height, nrChannel;
+	stbi_set_flip_vertically_on_load(true);
+	unsigned char* data = stbi_load(filename, &width, &height, &nrChannel, 0);
+	if (data) {
+		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else {
+		cout << "loda image failed" << endl;
+	}
+	stbi_image_free(data);
+	return TexBuffer;
+}
 int main() {
 
+	#pragma region Open a Window
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -138,12 +160,14 @@ int main() {
 	}
 
 	glViewport(0, 0, 800, 600);
-	// glEnable(GL_CULL_FACE);
-	// glCullFace(GL_BACK);
-	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glEnable(GL_DEPTH_TEST);
-	Shader* shader = new Shader("vertextSource.txt", "fragmentSource.txt");
+#pragma endregion
 
+	#pragma region Init Shader Program
+	Shader* shader = new Shader("vertextSource.vert", "fragmentSource.frag");
+#pragma endregion
+
+	#pragma region Init and Load Models to VAO & VBO
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -153,100 +177,76 @@ int main() {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	unsigned int EBO;
-	glGenBuffers(1, &EBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
 	// position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	// color attribute
-	// glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-	// glEnableVertexAttribArray(1);
 	// texture coord attribute
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(2);
+#pragma endregion
 
+	#pragma region Init & load Textures
 	unsigned int TexBufferA;
-	glGenTextures(1, &TexBufferA);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, TexBufferA);
-
-	int width, height, nrChannel;
-	stbi_set_flip_vertically_on_load(true);
-	unsigned char* data = stbi_load("wall.jpg", &width, &height, &nrChannel, 0);
-	if (data) {
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
-	} else {
-		cout << "loda image failed" << endl;
-	}
-	stbi_image_free(data);
+	TexBufferA = LoadImageToGPU("wall.jpg", GL_RGB, GL_RGB, 0);
 
 	unsigned int TexBufferB;
-	glGenTextures(1, &TexBufferB);
-	glActiveTexture(GL_TEXTURE3);
-	glBindTexture(GL_TEXTURE_2D, TexBufferB);
+	TexBufferB = LoadImageToGPU("awesomeface.png", GL_RGBA, GL_RGBA, 1);
+#pragma endregion
 
-	unsigned char* data2 = stbi_load("awesomeface.png", &width, &height, &nrChannel, 0);
-	if (data2) {
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data2);
-		glGenerateMipmap(GL_TEXTURE_2D);
-	}
-	else {
-		cout << "loda image failed" << endl;
-	}
-	stbi_image_free(data2);
-
-	glm::mat4 trans;
+	#pragma region prepare MVP matrices
 	glm::mat4 modelMat;
-	modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0f, 0, 0));
 	glm::mat4 viewMat;
-	//viewMat = camera.GetViewMatrix();
 	glm::mat4 projMat;
 	projMat = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+#pragma endregion
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
 
+		// Process Input
 		processInput(window);
 
+		// Clear Screen
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, TexBufferA);
-		glActiveTexture(GL_TEXTURE3);
-		glBindTexture(GL_TEXTURE_2D, TexBufferB);
-
-		glBindVertexArray(VAO);
-		// glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
 		viewMat = camera.GetViewMatrix();
 		
 		for (int i = 0; i < 10; i++) {
-			glm::mat4 modelMat2;
-			modelMat2 = glm::translate(modelMat2, cubePositions[i]);
+			// Set Model matrix
+			modelMat = glm::translate(glm::mat4(1.0f), cubePositions[i]);
+
+			// Set Material -> Shader program
 			shader->use();
+			// Set Material -> Textures
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, TexBufferA);
+			glActiveTexture(GL_TEXTURE3);
+			glBindTexture(GL_TEXTURE_2D, TexBufferB);
+			// Set Material -> Uniforms
 			glUniform1i(glGetUniformLocation(shader->ID, "ourTexture"), 0);
 			glUniform1i(glGetUniformLocation(shader->ID, "ourFace"), 3);
-			glUniformMatrix4fv(glGetUniformLocation(shader->ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat2));
+			glUniformMatrix4fv(glGetUniformLocation(shader->ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat));
 			glUniformMatrix4fv(glGetUniformLocation(shader->ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
 			glUniformMatrix4fv(glGetUniformLocation(shader->ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
 
+			// Set Model
+			glBindVertexArray(VAO);
+
+			// Draw Call
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 			//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		}
 
 		
-
+		// Clean Up, prepare for next render loop
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
 		camera.UpdateCameraPos();
 	}
 
+	// Exit
 	glfwTerminate();
 	return 0;
 }
