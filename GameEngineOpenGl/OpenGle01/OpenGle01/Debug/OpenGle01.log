@@ -1,8 +1,8 @@
 ﻿  main.cpp
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(98,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(99,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(104,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(105,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(107,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(108,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(114,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(115,11): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(120,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(121,16): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(123,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(124,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
   OpenGle01.vcxproj -> C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\OpenGle01.exe

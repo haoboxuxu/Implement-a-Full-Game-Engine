@@ -1,4 +1,6 @@
 #include "Camera.h"
+#include <iostream>
+using namespace std;
 
 Camera::Camera(glm::vec3 position, glm::vec3 target, glm::vec3 worldup) {
 	Position = position;
@@ -17,7 +19,7 @@ Camera::Camera(glm::vec3 position, float pitch, float yaw, glm::vec3 worldup) {
 	Forward.y = glm::sin(Pitch);
 	Forward.z = glm::cos(Pitch) * glm::cos(Yaw);
 	Right = glm::normalize(glm::cross(Forward, WorldUp));
-	Up = glm::normalize(glm::cross(Forward, Right));
+	Up = glm::normalize(glm::cross(Right, Forward));
 }
 
 glm::mat4 Camera::GetViewMatrix() {
@@ -29,7 +31,7 @@ void Camera::UpdateCameraVectors() {
 	Forward.y = glm::sin(Pitch);
 	Forward.z = glm::cos(Pitch) * glm::cos(Yaw);
 	Right = glm::normalize(glm::cross(Forward, WorldUp));
-	Up = glm::normalize(glm::cross(Forward, Right));
+	Up = glm::normalize(glm::cross(Right, Forward));
 }
 
 void Camera::ProcessMouseMovement(float deltaX, float deltaY) {
@@ -39,5 +41,5 @@ void Camera::ProcessMouseMovement(float deltaX, float deltaY) {
 }
 
 void Camera::UpdateCameraPos() {
-	Position += Forward * speedZ * 0.01f;
+	Position += Forward * speedZ * 0.01f + Right * speedX * 0.01f + Up * speedY * 0.01f;
 }
