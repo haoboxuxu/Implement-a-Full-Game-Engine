@@ -81,3 +81,11 @@ void Shader::checkCompileErrors(unsigned int ID, std::string type) {
 		}
 	}
 }
+
+void Shader::SetUniform3f(const char* paraNameString, glm::vec3 param) {
+	glUniform3f(glGetUniformLocation(ID, paraNameString), param.x, param.y, param.z);
+}
+
+void Shader::SetUniform1f(const char* paraNameString, float param) {
+	glUniform1f(glGetUniformLocation(ID, paraNameString), param);
+}

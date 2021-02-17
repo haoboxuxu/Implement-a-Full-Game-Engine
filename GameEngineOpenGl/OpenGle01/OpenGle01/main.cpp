@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Shader.h"
+#include "Material.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <glm/glm.hpp>
@@ -179,8 +180,16 @@ int main() {
 	glEnable(GL_DEPTH_TEST);
 #pragma endregion
 
-	#pragma region Init Shader Program
+#pragma region Init Shader Program
 	Shader* shader = new Shader("vertextSource.vert", "fragmentSource.frag");
+#pragma endregion
+
+#pragma region Init Material Program
+	Material* material = new Material(shader, 
+									glm::vec3(1.0f, 1.0f, 1.0f),
+									glm::vec3(1.0f, 1.0f, 1.0f),
+									glm::vec3(1.0f, 1.0f, 1.0f),
+									32.0f);
 #pragma endregion
 
 	#pragma region Init and Load Models to VAO & VBO
@@ -250,6 +259,12 @@ int main() {
 			glUniform3f(glGetUniformLocation(shader->ID, "lightPos"), 10.0f, 10.0f, -5.0f);
 			glUniform3f(glGetUniformLocation(shader->ID, "lightColor"), 1.0f, 1.0f, 1.0f);
 			glUniform3f(glGetUniformLocation(shader->ID, "cameraPos"), camera.Position.x, camera.Position.y, camera.Position.z);
+
+			
+			material->shader->SetUniform3f("material.ambient", material->ambient);
+			material->shader->SetUniform3f("material.diffuse", material->diffuse);
+			material->shader->SetUniform3f("material.specular", material->specular);
+			material->shader->SetUniform1f("material.shininess", material->shininess);
 
 			// Set Model
 			glBindVertexArray(VAO);

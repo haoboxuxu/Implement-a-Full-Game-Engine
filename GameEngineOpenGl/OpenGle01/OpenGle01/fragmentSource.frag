@@ -3,6 +3,14 @@
 in vec3 FragPos;
 in vec3 Normal;
 
+struct Material {
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    float shininess;
+};
+
+uniform Material material;
 uniform vec3 objColor;
 uniform vec3 ambientColor;
 uniform vec3 lightPos;
@@ -16,9 +24,13 @@ void main() {
     vec3 reflectVec = reflect(-lightDir, Normal);
     vec3 cameraVec = normalize(cameraPos - FragPos);
 
-    float specularAmount = pow(max(dot(reflectVec, cameraVec), 0), 32);
-    vec3 specular = specularAmount * lightColor;
+    // specular
+    float specularAmount = pow(max(dot(reflectVec, cameraVec), 0), material.shininess);
+    vec3 specular = material.specular * specularAmount * lightColor;
+    // diffuse
+    vec3 diffuse = material.diffuse * max(dot(lightDir, Normal), 0) * lightColor;
+    // ambient
+    vec3 ambient = material.ambient * ambientColor;
 
-    vec3 diffuse = max(dot(lightDir, Normal), 0) * lightColor;
-    FragColor = vec4((ambientColor + diffuse + specular) * objColor , 1.0);
+    FragColor = vec4((ambient + diffuse + specular) * objColor , 1.0);
 }
