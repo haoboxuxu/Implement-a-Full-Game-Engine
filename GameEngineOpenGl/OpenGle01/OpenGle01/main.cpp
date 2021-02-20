@@ -187,8 +187,8 @@ int main() {
 
 	#pragma region Init Material Program
 	Material* material = new Material(shader, 
-									LoadImageToGPU("container.png", GL_RGBA, GL_RGBA, 0),
-									glm::vec3(1.0f, 1.0f, 1.0f),
+									LoadImageToGPU("container.png", GL_RGBA, GL_RGBA, Shader::DIFFUSE),
+									LoadImageToGPU("container_specular.png", GL_RGBA, GL_RGBA, Shader::SPECULAR),
 									glm::vec3(1.0f, 1.0f, 1.0f),
 									32.0f);
 #pragma endregion
@@ -248,10 +248,10 @@ int main() {
 			// Set Material -> Shader program
 			shader->use();
 			// Set Material -> Textures
-			//glActiveTexture(GL_TEXTURE0);
-			//glBindTexture(GL_TEXTURE_2D, TexBufferA);
-			//glActiveTexture(GL_TEXTURE0);
-			//glBindTexture(GL_TEXTURE_2D, TexBufferB);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, material->diffuse);
+			glActiveTexture(GL_TEXTURE0 + 1);
+			glBindTexture(GL_TEXTURE_2D, material->specular);
 			// Set Material -> Uniforms
 			glUniform1i(glGetUniformLocation(shader->ID, "ourTexture"), 0);
 			glUniform1i(glGetUniformLocation(shader->ID, "ourFace"), 3);
@@ -266,8 +266,8 @@ int main() {
 
 			
 			material->shader->SetUniform3f("material.ambient", material->ambient);
-			material->shader->SetUniform1i("material.diffuse", 0);
-			material->shader->SetUniform3f("material.specular", material->specular);
+			material->shader->SetUniform1i("material.diffuse", Shader::DIFFUSE);
+			material->shader->SetUniform1i("material.specular", Shader::SPECULAR);
 			material->shader->SetUniform1f("material.shininess", material->shininess);
 
 			// Set Model

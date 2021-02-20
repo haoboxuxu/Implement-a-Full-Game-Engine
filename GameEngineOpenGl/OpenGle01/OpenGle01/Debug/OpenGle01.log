@@ -1,8 +1,11 @@
-﻿  main.cpp
+﻿  Material.cpp
+  Shader.cpp
+  main.cpp
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(116,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(117,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(122,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(123,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(125,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(126,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   OpenGle01.vcxproj -> C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\OpenGle01.exe
