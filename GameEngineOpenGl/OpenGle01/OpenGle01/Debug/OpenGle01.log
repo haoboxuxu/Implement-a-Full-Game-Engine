@@ -1,8 +1,8 @@
 ﻿  main.cpp
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(123,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(124,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(129,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(130,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(132,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(133,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(125,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(126,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(131,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(132,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(134,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\haobo\Desktop\vsproj\OpenGle01\OpenGle01\main.cpp(135,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   OpenGle01.vcxproj -> C:\Users\haobo\Desktop\vsproj\OpenGle01\Debug\OpenGle01.exe
